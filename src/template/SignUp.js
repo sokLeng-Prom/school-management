@@ -12,6 +12,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
 
 function Copyright() {
   return (
@@ -44,12 +47,15 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function SignUp() {
   const classes = useStyles();
 
-  // info needed: age, name, age,, email, national_id_num, role, major, username, password
+  // info needed: age, name, email, national_id_num, role, major, username, password
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -106,6 +112,57 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
               />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="national_id_num"
+                label="National ID Number"
+                name="National ID Number"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <InputLabel
+                shrink
+                id="demo-simple-select-placeholder-label-label"
+              >
+                Role
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-placeholder-label-label"
+                id="demo-simple-select-placeholder-label"
+                // value={age}
+                // onChange={handleChange}
+                displayEmpty
+                className={classes.selectEmpty}
+              >
+                <MenuItem value={"teacher"}>Teacher</MenuItem>
+                <MenuItem value={"student"}>Student</MenuItem>
+                <MenuItem value={"admin"}>Admin</MenuItem>
+              </Select>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <InputLabel
+                shrink
+                id="demo-simple-select-placeholder-label-label"
+              >
+                Major
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-placeholder-label-label"
+                id="demo-simple-select-placeholder-label"
+                // value={age}
+                // onChange={handleChange}
+                displayEmpty
+                className={classes.selectEmpty}
+              >
+                <MenuItem value={"teacher"}>Teacher</MenuItem>
+                <MenuItem value={"student"}>Student</MenuItem>
+                <MenuItem value={"admin"}>Admin</MenuItem>
+              </Select>
             </Grid>
             <Grid item xs={12}>
               <TextField
