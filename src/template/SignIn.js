@@ -9,8 +9,13 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
+import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useState } from "react";
+import { FormControl } from "@material-ui/core";
+
+import { Redirect, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,8 +37,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
+
+  // state
+  const [username, setUserName] = useState("");
+  const [password, setPassWord] = useState("");
+  const [userNameValid, setUserNameValid] = useState(false);
+  const [passWordValid, setPassWordValid] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const [submitValid, setSubmitValid] = useState(false);
+
+  const history = useHistory();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const data = await props.onSubmit({
+      username: username,
+      password: password,
+    });
+    if (data === null) {
+      setSubmitValid(true);
+      setTimeout(() => {
+        setSubmitValid(false);
+      }, 5000);
+    } else {
+      console.log("SIGN-IN SUCCESS");
+      let [user] = data.filter((user) => user.password === password);
+      if (rememberMe === true) localStorage.setItem("id", user.id);
+      // redirect user to other route based on their role
+      history.push("/sign-up");
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -45,16 +81,25 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <Alert
+          severity="error"
+          style={{ display: submitValid ? "flex" : "none" }}
+        >
+          Incorrect login credentials
+        </Alert>
+        <form className={classes.form} onSubmit={submitHandler}>
           <TextField
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
             autoFocus
           />
           <TextField
@@ -62,6 +107,7 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            onChange={(e) => setPassWord(e.target.value)}
             name="password"
             label="Password"
             type="password"
@@ -69,7 +115,14 @@ export default function SignIn() {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={
+              <Checkbox
+                value={rememberMe}
+                onChange={() => setRememberMe(!rememberMe)}
+                checked={rememberMe}
+                color="primary"
+              />
+            }
             label="Remember me"
           />
           <Button

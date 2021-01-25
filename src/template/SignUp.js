@@ -15,6 +15,13 @@ import Container from "@material-ui/core/Container";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import NativeSelect from "@material-ui/core/NativeSelect";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Divider from "@material-ui/core/Divider";
+
+import { useState } from "react";
+import { BASE_URL, isNumber, isEmail } from "../static/const";
 
 function Copyright() {
   return (
@@ -50,10 +57,29 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  section1: {
+    margin: theme.spacing(3, 2),
+  },
 }));
 
 export default function SignUp() {
   const classes = useStyles();
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [age, setAge] = useState();
+  const [ageInputValidation, setAgeInputValidation] = useState(true);
+  const [emailAddress, setEmailAddress] = useState();
+  const [emailInputValidation, setEmailInputValidation] = useState(true);
+  const [nationalIDNumber, setNationalIDNumber] = useState();
+  const [userName, setUserName] = useState();
+  const [passWord, setPassWord] = useState();
+  const [role, setRole] = useState();
+  const [major, setMajor] = useState();
 
   // info needed: age, name, email, national_id_num, role, major, username, password
   return (
@@ -63,10 +89,19 @@ export default function SignUp() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
           Register Page For Admin
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form}>
+          <Grid container alignItems="center">
+            <Grid item xs>
+              <Typography gutterBottom variant="h6">
+                Personal Information
+              </Typography>
+            </Grid>
+          </Grid>
+          <Divider variant="middle" />
+          <br></br>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -77,6 +112,7 @@ export default function SignUp() {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
                 autoFocus
               />
             </Grid>
@@ -88,22 +124,39 @@ export default function SignUp() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                onChange={(e) => setLastName(e.target.value)}
                 autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                error={ageInputValidation ? false : true}
+                helperText={
+                  ageInputValidation
+                    ? ""
+                    : "Input must be a number with value less than 100"
+                }
                 variant="outlined"
                 required
                 fullWidth
                 id="Age"
                 label="Age"
                 name="Age"
+                onChange={(e) => {
+                  if (!isNumber(e.target.value)) {
+                    setAgeInputValidation(false);
+                  } else {
+                    setAgeInputValidation(true);
+                    setAge(e.target.value);
+                  }
+                }}
                 autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                error={emailInputValidation ? false : true}
+                helperText={emailInputValidation ? "" : "Input must an email"}
                 variant="outlined"
                 required
                 fullWidth
@@ -111,6 +164,14 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => {
+                  if (!isEmail(e.target.value)) {
+                    setEmailInputValidation(false);
+                  } else {
+                    setEmailInputValidation(true);
+                    setEmailAddress(e.target.value);
+                  }
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -124,46 +185,18 @@ export default function SignUp() {
                 autoComplete="email"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel
-                shrink
-                id="demo-simple-select-placeholder-label-label"
-              >
-                Role
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-placeholder-label-label"
-                id="demo-simple-select-placeholder-label"
-                // value={age}
-                // onChange={handleChange}
-                displayEmpty
-                className={classes.selectEmpty}
-              >
-                <MenuItem value={"teacher"}>Teacher</MenuItem>
-                <MenuItem value={"student"}>Student</MenuItem>
-                <MenuItem value={"admin"}>Admin</MenuItem>
-              </Select>
+          </Grid>
+          <br></br>
+          <Grid container alignItems="center">
+            <Grid item xs>
+              <Typography gutterBottom variant="h6">
+                Login Information
+              </Typography>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel
-                shrink
-                id="demo-simple-select-placeholder-label-label"
-              >
-                Major
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-placeholder-label-label"
-                id="demo-simple-select-placeholder-label"
-                // value={age}
-                // onChange={handleChange}
-                displayEmpty
-                className={classes.selectEmpty}
-              >
-                <MenuItem value={"teacher"}>Teacher</MenuItem>
-                <MenuItem value={"student"}>Student</MenuItem>
-                <MenuItem value={"admin"}>Admin</MenuItem>
-              </Select>
-            </Grid>
+          </Grid>
+          <Divider variant="middle" />
+          <br></br>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -187,10 +220,53 @@ export default function SignUp() {
                 autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={6}>
+              <FormControl className={classes.formControl}>
+                <InputLabel shrink htmlFor="age-native-label-placeholder">
+                  Role
+                </InputLabel>
+                <NativeSelect
+                // value={state.age}
+                // onChange={handleChange}
+                // inputProps={{
+                //   name: "age",
+                //   id: "age-native-label-placeholder",
+                // }}
+                >
+                  <option value="">None</option>
+                  <option value={10}>Student</option>
+                  <option value={20}>Teacher</option>
+                  <option value={30}>Admin</option>
+                </NativeSelect>
+              </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+              <FormControl className={classes.formControl}>
+                <InputLabel shrink htmlFor="age-native-label-placeholder">
+                  Major
+                </InputLabel>
+                <NativeSelect
+                // value={state.age}
+                // onChange={handleChange}
+                // inputProps={{
+                //   name: "age",
+                //   id: "age-native-label-placeholder",
+                // }}
+                >
+                  <option value="">None</option>
+                  <option value={10}>Computer Science</option>
+                  <option value={20}>Business</option>
+                  {/* <option value={30}>Admin</option> */}
+                </NativeSelect>
+              </FormControl>
+            </Grid>
+
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                control={
+                  <Checkbox required value="allowExtraEmails" color="primary" />
+                }
+                label="I agree that the information above is correct and accurate."
               />
             </Grid>
           </Grid>
