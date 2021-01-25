@@ -3,9 +3,10 @@ import "./App.css";
 import SignIn from "./template/SignIn";
 import SignUp from "./template/SignUp";
 import AttendanceSheet from "./template/AttendanceSheet";
+import ScoreSheet from "./template/ScoreSheet";
 import { useEffect, useState } from "react";
 
-import { BASE_URL } from "./static/const";
+import { BASE_URL, UUID_API_URL } from "./static/const";
 
 import Home from "./test/Home";
 import AfterSignIn from "./test/AfterSignIn";
@@ -29,15 +30,26 @@ function App() {
     else return res.data;
   };
 
+  const getUUID = async () => {
+    const res = await axios.get(UUID_API_URL);
+    return res.data;
+  };
+
+  const fSignUp = async () => {
+    // uuid req
+    const uuid = await getUUID();
+  };
+
   return (
     <div className="App">
-      <Router>
+      <ScoreSheet />
+      {/* <Router>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/sign-up">
-            <SignUp />
+            <SignUp onSubmit={fSignUp} />
           </Route>
           <Route path="/sign-in">
             <SignIn onSubmit={fSignIn} />
@@ -46,7 +58,7 @@ function App() {
             <AfterSignIn />
           </Route>
         </Switch>
-      </Router>
+      </Router> */}
       {/* <SignIn onSubmit={fSignIn} /> */}
       {/* <AttendanceSheet></AttendanceSheet> */}
       {/* {console.log(users[0].data.students)} */}

@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const classes = useStyles();
 
   const [firstName, setFirstName] = useState();
@@ -81,18 +81,23 @@ export default function SignUp() {
   const [role, setRole] = useState();
   const [major, setMajor] = useState();
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const data = await props.onSubmit();
+    console.log(data);
+  };
   // info needed: age, name, email, national_id_num, role, major, username, password
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h4">
-          Register Page For Admin
+          Registration Page(Admin Access Only)
         </Typography>
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
           <Grid container alignItems="center">
             <Grid item xs>
               <Typography gutterBottom variant="h6">
@@ -102,7 +107,7 @@ export default function SignUp() {
           </Grid>
           <Divider variant="middle" />
           <br></br>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
@@ -143,7 +148,10 @@ export default function SignUp() {
                 label="Age"
                 name="Age"
                 onChange={(e) => {
-                  if (!isNumber(e.target.value)) {
+                  if (
+                    !isNumber(e.target.value) &&
+                    parseInt(e.target.value) > 100
+                  ) {
                     setAgeInputValidation(false);
                   } else {
                     setAgeInputValidation(true);
@@ -226,12 +234,13 @@ export default function SignUp() {
                   Role
                 </InputLabel>
                 <NativeSelect
-                // value={state.age}
-                // onChange={handleChange}
-                // inputProps={{
-                //   name: "age",
-                //   id: "age-native-label-placeholder",
-                // }}
+                  required
+                  // value={state.age}
+                  // onChange={handleChange}
+                  // inputProps={{
+                  //   name: "age",
+                  //   id: "age-native-label-placeholder",
+                  // }}
                 >
                   <option value="">None</option>
                   <option value={10}>Student</option>
@@ -240,18 +249,19 @@ export default function SignUp() {
                 </NativeSelect>
               </FormControl>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item>
               <FormControl className={classes.formControl}>
                 <InputLabel shrink htmlFor="age-native-label-placeholder">
                   Major
                 </InputLabel>
                 <NativeSelect
-                // value={state.age}
-                // onChange={handleChange}
-                // inputProps={{
-                //   name: "age",
-                //   id: "age-native-label-placeholder",
-                // }}
+                  required
+                  // value={state.age}
+                  // onChange={handleChange}
+                  // inputProps={{
+                  //   name: "age",
+                  //   id: "age-native-label-placeholder",
+                  // }}
                 >
                   <option value="">None</option>
                   <option value={10}>Computer Science</option>
@@ -279,13 +289,13 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          {/* <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </form>
       </div>
       <Box mt={5}>
