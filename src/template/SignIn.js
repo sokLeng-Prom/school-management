@@ -64,10 +64,11 @@ export default function SignIn(props) {
       }, 5000);
     } else {
       console.log("SIGN-IN SUCCESS");
-      let [user] = data.filter((user) => user.password === password);
-      if (rememberMe === true) localStorage.setItem("id", user.id);
+      console.log(data);
+      // let [user] = data.filter((user) => user.password === password);
+      if (rememberMe === true) localStorage.setItem("id", data.id);
       // redirect user to other route based on their role
-      history.push("/sign-up");
+      history.push("/sign-in-success");
     }
   };
 

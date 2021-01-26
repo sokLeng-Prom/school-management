@@ -15,16 +15,22 @@
                 "Business"
             ],
             "data": {
-                "students": [
-                    {
-                        "id": "315080ae-5c7e-11eb-ae93-0242ac130002",
-                        "name": "Lucy Beck"
-                    },
-                    {
-                        "id": "c78f9e96-5c8e-11eb-ae93-0242ac130002",
-                        "name": "John Kepler"
+                "class": {
+                    "Business": {
+                        "students": [
+                            {
+                                "id": "315080ae-5c7e-11eb-ae93-0242ac130002",
+                                "name": "Lucy Beck"
+                            },
+                            {
+                                "id": "c78f9e96-5c8e-11eb-ae93-0242ac130002",
+                                "name": "John Kepler"
+                            }
+                        ],
+                        "exam": [],
+                        "assignment": []
                     }
-                ]
+                }
             }
         },
         {

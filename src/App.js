@@ -4,6 +4,7 @@ import SignIn from "./template/SignIn";
 import SignUp from "./template/SignUp";
 import AttendanceSheet from "./template/AttendanceSheet";
 import ScoreSheet from "./template/ScoreSheet";
+import PageNotFound from "./template/PageNotFound";
 import { useEffect, useState } from "react";
 
 import { BASE_URL, UUID_API_URL } from "./static/const";
@@ -26,8 +27,11 @@ function App() {
   const fSignIn = async (data) => {
     console.log("FUNCTION IS RUNNING");
     const res = await axios.get(`${BASE_URL}/users?username=${data.username}`);
-    if (res.data.length === 0) return null;
-    else return res.data;
+    if (res.data.length === 0 || res.data[0].password !== data.password) {
+      return null;
+    } else {
+      return res.data[0];
+    }
   };
 
   const getUUID = async () => {
@@ -42,8 +46,8 @@ function App() {
 
   return (
     <div className="App">
-      <ScoreSheet />
-      {/* <Router>
+      {/* <ScoreSheet /> */}
+      <Router>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -57,8 +61,11 @@ function App() {
           <Route path="/sign-in-success">
             <AfterSignIn />
           </Route>
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
-      </Router> */}
+      </Router>
       {/* <SignIn onSubmit={fSignIn} /> */}
       {/* <AttendanceSheet></AttendanceSheet> */}
       {/* {console.log(users[0].data.students)} */}
