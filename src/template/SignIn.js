@@ -65,10 +65,12 @@ export default function SignIn(props) {
     } else {
       console.log("SIGN-IN SUCCESS");
       console.log(data);
+      localStorage.setItem("rememberMe", rememberMe);
+      console.log(typeof localStorage.getItem("rememberMe"));
       // let [user] = data.filter((user) => user.password === password);
       if (rememberMe === true) localStorage.setItem("id", data.id);
       // redirect user to other route based on their role
-      history.push("/sign-in-success");
+      history.push("/dashboard");
     }
   };
 

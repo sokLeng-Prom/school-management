@@ -11,4 +11,20 @@ const isEmail = (string) => {
 
   return reg.test(string);
 };
-export { BASE_URL, isNumber, isEmail, UUID_API_URL };
+const stringToBoolean = (string) => {
+  if (string === "true") return true;
+  else if (string === "false") return false;
+  else if (string === "null") return null;
+};
+const isLoggedIn = () => {
+  if (localStorage.getItem("id")) return true;
+  return false;
+};
+export {
+  BASE_URL,
+  isNumber,
+  isEmail,
+  UUID_API_URL,
+  stringToBoolean,
+  isLoggedIn,
+};
