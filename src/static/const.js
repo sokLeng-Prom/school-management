@@ -17,7 +17,7 @@ const stringToBoolean = (string) => {
   else if (string === "null") return null;
 };
 const isLoggedIn = () => {
-  if (localStorage.getItem("id")) return true;
+  if (localStorage.getItem("id") || sessionStorage.getItem("id")) return true;
   return false;
 };
 export {
