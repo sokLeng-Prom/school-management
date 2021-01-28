@@ -5,7 +5,8 @@ function AttendanceSheet() {
   const [students, setStudents] = useState([]);
   const getDB = async () => {
     const res = await axios.get("http://localhost:3001/users");
-    setStudents(res.data[0].data.students);
+    // setStudents(res.data[0].data.students);
+    setStudents(res.data);
   };
 
   useEffect(() => getDB(), []);

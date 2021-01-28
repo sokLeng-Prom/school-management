@@ -5,13 +5,14 @@ import SignUp from "./template/SignUp";
 import AttendanceSheet from "./template/AttendanceSheet";
 import ScoreSheet from "./template/ScoreSheet";
 import PageNotFound from "./template/PageNotFound";
-import Dashboard from "./template/Dashboard";
+
+import DrawerLeft from "./template/DrawerLeft";
+import ResponsiveDrawer from "./template/ResponsiveDrawer";
+
 import { useEffect, useState } from "react";
 import { useBeforeunload } from "react-beforeunload";
 
 import { BASE_URL, UUID_API_URL, stringToBoolean } from "./static/const";
-
-import AfterSignIn from "./test/AfterSignIn";
 
 import axios from "axios";
 import {
@@ -72,24 +73,24 @@ function App() {
             exact
             props={{ onSubmit: fSignIn }}
           />
-          <PrivateRoute component={Dashboard} path="/dashboard" exact />
-          {/* <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/sign-up">
-            <SignUp onSubmit={fSignUp} />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn onSubmit={fSignIn} />
-          </Route>
-          <Route path="/sign-in-success">
-            <AfterSignIn />
-          </Route> */}
+          <PrivateRoute
+            component={ResponsiveDrawer}
+            path="/dashboard"
+            props={{ selected: "Dashboard" }}
+            exact
+          />
+          <PrivateRoute
+            component={ResponsiveDrawer}
+            path="/classroom"
+            props={{ selected: "Classroom" }}
+            exact
+          />
           <Route>
             <PageNotFound />
           </Route>
         </Switch>
       </Router>
+
       {/* <SignIn onSubmit={fSignIn} /> */}
       {/* <AttendanceSheet></AttendanceSheet> */}
       {/* {console.log(users[0].data.students)} */}
