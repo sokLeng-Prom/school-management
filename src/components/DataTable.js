@@ -1,5 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  createMuiTheme,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -8,13 +12,41 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+const theme = createMuiTheme({
+  overrides: {
+    // Style sheet name ⚛️
+    MuiTableCell: {
+      // Name of the rule
+      root: {
+        // Some CSS
+        borderBottom: "none",
+      },
+    },
+  },
+});
+
 const useStyles = makeStyles({
-  table: {
+  tableTop: {
     minWidth: 650,
+    // borderCollapse: "separate",
+    // borderSpacing: "1rem",
+  },
+
+  tableBottom: {
+    borderCollapse: "separate",
+    borderSpacing: "0 10rem",
+    backgroundColor: "red",
+    borderRadius: "1rem",
   },
 
   header: {
     backgroundColor: "#FAFAFA",
+  },
+
+  row: {
+    backgroundColor: "white",
+    borderRadius: "1rem",
+    // borderTopLeftRadius: "100px",
   },
 });
 
@@ -34,31 +66,35 @@ export default function DataTable() {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead className={classes.header}>
-          <TableRow>
-            <TableCell>Course Code</TableCell>
-            <TableCell align="right">Course Name</TableCell>
-            <TableCell align="right">Course Schedule</TableCell>
-            <TableCell align="right">Course Instructor</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+    <ThemeProvider theme={theme}>
+      <TableContainer component={Paper}>
+        <Table className={classes.tableTop} aria-label="simple table">
+          <TableHead className={classes.header}>
+            <TableRow>
+              <TableCell>Course Code</TableCell>
+              <TableCell align="right">Course Name</TableCell>
+              <TableCell align="right">Course Schedule</TableCell>
+              <TableCell align="right">Course Instructor</TableCell>
+              <TableCell align="right">Protein&nbsp;(g)</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+        </Table>
+        <Table className={classes.tableBottom}>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name} className={classes.row}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">{row.calories}</TableCell>
+                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="right">{row.carbs}</TableCell>
+                <TableCell align="right">{row.protein}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </ThemeProvider>
   );
 }

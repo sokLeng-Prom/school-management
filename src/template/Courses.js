@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import SearchBox from '../components/SearchBox'
 import DataTable from '../components/DataTable'
-
+import DataTableDemo from '../components/DataTableDemo'
 
 export default function Courses() {
     const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,8 @@ export default function Courses() {
             <div className={classes.content}>
                 <div className={classes.toolbar}></div>
                 <SearchBox />
-                <DataTable/>
+                {/* <DataTable/> */}
+                <DataTableDemo></DataTableDemo>
             </div>
         </div>
     )
