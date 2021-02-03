@@ -19,26 +19,32 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import { BASE_URL } from "../static/const";
+import axios from "axios";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+import { useEffect } from "react";
+
+function createData(courseCode, courseName, credit, faculty, description) {
+  return { courseCode, courseName, credit, faculty, description };
 }
 
-const rows = [
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Donut", 452, 25.0, 51, 4.9),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Honeycomb", 408, 3.2, 87, 6.5),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Jelly Bean", 375, 0.0, 94, 0.0),
-  createData("KitKat", 518, 26.0, 65, 7.0),
-  createData("Lollipop", 392, 0.2, 98, 0.0),
-  createData("Marshmallow", 318, 0, 81, 2.0),
-  createData("Nougat", 360, 19.0, 9, 37.0),
-  createData("Oreo", 437, 18.0, 63, 4.0),
+var rows = [
+  // createData("Cupcake", 305, 3.7, 67, 4.3),
+  // createData("Donut", 452, 25.0, 51, 4.9),
+  // createData("Eclair", 262, 16.0, 24, 6.0),
+  // createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  // createData("Gingerbread", 356, 16.0, 49, 3.9),
+  // createData("Honeycomb", 408, 3.2, 87, 6.5),
+  // createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  // createData("Jelly Bean", 375, 0.0, 94, 0.0),
+  // createData("KitKat", 518, 26.0, 65, 7.0),
+  // createData("Lollipop", 392, 0.2, 98, 0.0),
+  // createData("Marshmallow", 318, 0, 81, 2.0),
+  // createData("Nougat", 360, 19.0, 9, 37.0),
+  // createData("Oreo", 437, 18.0, 63, 4.0),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -69,28 +75,62 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: "name",
+    id: "courseCode",
     numeric: false,
     disablePadding: true,
     label: "Course Code",
   },
   {
-    id: "calories",
+    id: "courseName",
     numeric: false,
     disablePadding: false,
     label: "Course Name",
   },
-  { id: "fat", numeric: false, disablePadding: false, label: "Faculty" },
-  { id: "carbs", numeric: false, disablePadding: false, label: "Description" },
   {
-    id: "protein",
+    id: "credit",
+    numeric: true,
+    disablePadding: false,
+    label: "Credit",
+  },
+  { id: "faculty", numeric: false, disablePadding: false, label: "Faculty" },
+  {
+    id: "description",
     numeric: false,
     disablePadding: false,
-    label: "Protein (g)",
+    label: "Description",
   },
 ];
 
+function ExpandableTableRow({ children, expandComponent, ...otherProps }) {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  return (
+    <>
+      <TableRow {...otherProps} onClick={() => setIsExpanded(!isExpanded)}>
+        <TableCell padding="checkbox">
+          <IconButton onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        {children}
+      </TableRow>
+      {isExpanded && (
+        <TableRow>
+          <TableCell padding="checkbox" />
+          {expandComponent}
+        </TableRow>
+      )}
+    </>
+  );
+}
+
 function EnhancedTableHead(props) {
+  const fetch = async () => {
+    const resp = await axios.get(`${BASE_URL}/courses`);
+    rows = resp.data;
+    console.log(rows);
+  };
+  useEffect(() => fetch(), []);
+
   const {
     classes,
     // onSelectAllClick,
@@ -107,18 +147,12 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          {/* <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ "aria-label": "select all desserts" }}
-          /> */}
-        </TableCell>
+        <TableCell padding="checkbox"></TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
+            // align={headCell.numeric ? "right" : "left"}
+            align="center"
             padding={headCell.disablePadding ? "none" : "default"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -244,6 +278,12 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
+  row: {
+    "&:hover": {
+      backgroundColor: "#E7E7E7",
+      cursor: "pointer",
+    },
+  },
 }));
 
 export default function DataTableDemo() {
@@ -337,22 +377,38 @@ export default function DataTableDemo() {
                   }
 
                   const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
-                    <TableRow
+                    <ExpandableTableRow
+                      key={index}
+                      expandComponent={
+                        <TableCell colSpan={5}>{row.description}</TableCell>
+                      }
+                      className={classes.row}
+                    >
+                      {/* <TableCell padding="checkbox"></TableCell>
+                      <TableCell padding="checkbox"></TableCell> */}
+
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="none"
+                      >
+                        {row.courseCode}
+                      </TableCell>
+                      <TableCell align="center">{row.courseName}</TableCell>
+                      <TableCell align="center">{row.credit}</TableCell>
+                      <TableCell align="center">{row.faculty}</TableCell>
+                      <TableCell align="center">{row.description}</TableCell>
+                    </ExpandableTableRow>
+                    /* <TableRow
                       hover
-                      //   onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
-                      //   aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
-                      //   selected={isItemSelected}
+                      key={index}
                     >
                       <TableCell padding="checkbox">
-                        {/* <Checkbox
-                          checked={isItemSelected}
-                          inputProps={{ "aria-labelledby": labelId }}
-                        /> */}
+ 
                       </TableCell>
                       <TableCell
                         component="th"
@@ -360,13 +416,13 @@ export default function DataTableDemo() {
                         scope="row"
                         padding="none"
                       >
-                        {row.name}
+                        {row.courseName}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
-                    </TableRow>
+                      <TableCell align="right">{row.courseCode}</TableCell>
+                      <TableCell align="right">{row.credit}</TableCell>
+                      <TableCell align="right">{row.faculty}</TableCell>
+                      <TableCell align="right">{row.description}</TableCell>
+                    </TableRow> */
                   );
                 })}
               {emptyRows > 0 && (
