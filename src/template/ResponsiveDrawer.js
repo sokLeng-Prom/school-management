@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,6 +19,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Courses from "../template/Courses";
+import Classroom from "../template/Classroom";
 
 const drawerWidth = 240;
 
@@ -63,9 +65,21 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 0:
+        return <Courses />;
+        break;
+      case 1:
+        return <Classroom />;
+        return;
+    }
   };
 
   const drawer = (
@@ -74,7 +88,13 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {["Courses", "Classroom", "Your Course"].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem
+            button
+            key={text}
+            onClick={() => {
+              setActiveTab(index);
+            }}
+          >
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
@@ -150,7 +170,8 @@ function ResponsiveDrawer(props) {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        <Courses />
+        {/* <Courses /> */}
+        {renderContent()}
       </main>
     </div>
   );

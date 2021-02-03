@@ -82,19 +82,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const content = (state) => {
-  if (state === "Dashboard") return <Typography>Dashboard</Typography>;
-  else if (state === "Classroom") {
-    return <Typography>Classroom</Typography>;
-  }
-};
-
 export default function DrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
   const [selected, setSelected] = useState(props.selected);
+
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,6 +99,13 @@ export default function DrawerLeft(props) {
     setOpen(false);
   };
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 0:
+        return <Courses />;
+        break;
+    }
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -153,7 +155,7 @@ export default function DrawerLeft(props) {
               button
               key={text}
               onClick={() => {
-                setSelected(text);
+                setActiveTab(index);
               }}
             >
               <ListItemIcon>
@@ -182,7 +184,7 @@ export default function DrawerLeft(props) {
       >
         <div className={classes.drawerHeader} />
         {/* content goes here */}
-        <Courses />
+        {renderContent()}
       </main>
     </div>
   );
