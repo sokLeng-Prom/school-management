@@ -50,5 +50,297 @@
             ],
             "data": {}
         }
+    ],
+    "courses": [
+        {
+        "courseCode": "ACC 101",
+        "courseName": "Principles of Accounting",
+        "credit": 3, 
+        "faculty": "Faculty of Engineering",
+        "description":
+        "This foundation course is designed to introduce students to the fundamentals of preparing and recording financial documentation from originating documents and processing ledger transactions up to the trial balance stage. The course mainly covers the knowledge of fundamental accounting concepts for different types of business entities, including the purpose of accounting, the users of accounting information and an introduction to recording transactional accounting data in the double entry bookkeeping system. The course specifically concentrates in depth on recording, processing, and reporting business transactions and events, including the specific accounting for basic financial statement items, which are prerequisites for preparation of final accounts. Overall, the course aims to help students to develop knowledge and understanding of the main types of business transactions and documentation and how these are recorded in an accounting system up to the trial balance stage. "
+        },
+        {
+            "courseCode": "ACC 201",
+            "courseName": "Principles of Accounting I",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Intended for students with no previous exposure to financial accounting, this course provides students the knowledge and skills necessary to read, understand, and analyze financial statements. In particular, this course covers: how to record and maintain accounting records (i.e., bookkeeping and accrual accounting), how to prepare and interpret a firm's primary financial statements (i.e., the balance sheet, the income statement, and the statement of cash flows). Overall, the course adopts a decision-making perspective on accounting, emphasizing the relationships between accounting data and the underlying economic events that generated them."
+        },
+        {
+            "courseCode": "ACC 202",
+            "courseName": "Principles of Accounting II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Buildng on the material from ACC 201, this course focusses on financial accounting concepts and financial reporting.  Students will learn how decision makers analyse, interpret, and use accounting information. In particula, students will take a close look at how the accounting system measures, records, and reports economic activities, as well as the relationship between accrual and cash flow measures in interpreting accounting information, calculating inventory, receivables, and ensuring control over company assets."
+        },
+        {
+            "courseCode": "ACC 203",
+            "courseName": "Principles of Accounting - ACCA F3",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Discontinued"
+        },
+        {
+            "courseCode": "ACC 301",
+            "courseName": "Financial Accounting",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Financial Accounting introduces the double-entry accounting system and extends the understanding of the basic principles of financial accounting. Students who successfully complete this course should be able to identify, understand and apply basic financial accounting principles in the preparation of accounting reports."
+        },
+        {
+            "courseCode": "ACC 310",
+            "courseName": "Managerial Accounting",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course provides an introduction to the fundamentals of management accounting. Topics include cost accounting terminology, job costing, process costing, activity-based costing, activity-based management, cost-volume-profit analysis, budgeting, standard costing, variance analysis, responsibility accounting, variable costing, transfer pricing and decision making."
+        },
+        {
+            "courseCode": "ACC 351",
+            "courseName": "Financial Reporting",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "The aim of the course is to develop knowledge and skills in understanding and applying accounting standards and the theoretical framework in the preparation of financial statements of entities, including groups and how to analyse and interpret those financial statements."
+        },
+        {
+            "courseCode": "ACC 352",
+            "courseName": "Financial Reporting II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Discontinued"
+        },
+        {
+            "courseCode": "ACC 411",
+            "courseName": "Auditing 1",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "A study of the planning, evidence gathering, internal control review, sampling, and application of procedures used to audit assets, liabilities, equity and related income statement accounts of a profit-oriented enterprise. The reporting requirements for compilation and review services and a thorough study of the types of audit opinions will also be studied. "
+        },
+        {
+            "courseCode": "ACC 412",
+            "courseName": "Auditing 2",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course further expands the study of the procedures used to audit profit-oriented enterprise and extends them to other forms of organization. The reporting requirements for compilation and review services and a thorough study of the types of audit opinions is also be studied. "
+        },
+        {
+            "courseCode": "AE 101",
+            "courseName": "The History of Architectural Design",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Discontinued"
+        },
+        {
+            "courseCode": "AE 335",
+            "courseName": "Building Systems I (MEP)",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "To successfully build a building, Architects, Engineers, and Constructors (AEC Professionals) need to understand the systems in the buildings which mainly used in providing the safety and comfort to the end-users (residents of the building). “Building Systems I (MEP)” provides a basic understanding of the usage of mechanical, electrical and plumbing (MEP) equipments in the building in order to effectively design the cost-efficient and energy-efficient building. Besides, students learn to integrate the building systems during their architectural and structural design of building in order to avoid the conflict during the construction."
+        },
+        {
+            "courseCode": "AE 401",
+            "courseName": "Building's Systems (MEP) II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Course replaced with ARC 312."
+        },
+        {
+            "courseCode": "AE 411",
+            "courseName": "Architectural Engineering Design Project I",
+            "credit": 4, 
+            "faculty": "Faculty of Engineering",
+            "description": "The purpose of the Architectural Engineering Design Project is for students to apply the knowledge acquired during their undergraduate program to a full-scale project involving actual real-world problems."
+        },
+        {
+            "courseCode": "AE 412",
+            "courseName": "Architectural Engineering Design Project II",
+            "credit": 4, 
+            "faculty": "Faculty of Engineering",
+            "description": "Continuation of AE 411."
+        },
+        {
+            "courseCode": "ARC 101",
+            "courseName": "Architectural Drawing and Creativity",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": ")Buildings always begin as drawings. As concepts on paper, architectural drawings are essential to planning, designing, and executing structures. Conversely, buildings can also inspire drawings. This course explores the symbiotic relationship between the fine art of architectural drawing, the artistic nature of standing edifices, and architecture in art. Students learn various ways that one can portray a building, from creating images that present proposed actual structures to completing those that convey purely hypothetical concepts. Conceptual design is implemented through the teaching of advanced techniques of creativity.  (Lecture, 3 hours)"
+        },
+        {
+            "courseCode": "ARC 112",
+            "courseName": "Computer-aided Design for Architect I",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "N/A"
+        },
+        {
+            "courseCode": "ARC 180",
+            "courseName": "Architectural Design for Engineering Students",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Not open to students who have taken ARC 201 or higher."
+        },
+        {
+            "courseCode": "ARC 201",
+            "courseName": "Architectural Design I",
+            "credit": 6, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course is an introduction to architectural design with emphasis on basic design content, including the logical arrangement of elements in space. A series of projects are assigned and reviewed for format, presentation and completeness. Assigned projects include functional design, internal circulation, and coordination with furniture. Assigned projects include bi-dimensional and three-dimensional representations. Upon successful completion of this course, students should be able to explain the fundamentals of architectural design, design solutions to specific architectural problems, and present design solutions to the instructor."
+        },
+        {
+            "courseCode": "ARC 202",
+            "courseName": "Architectural Design II",
+            "credit": 6, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course builds on the ideas presented ARC 201 and provides an introduction to the architectural design of a small residence Assigned projects include functional design, space design, internal circulation, and coordination with furniture. Basics of finishing (Flooring, Ceiling, Wall Cladding) complete the preparation. Upon successful completion of this course, students should be able to explain the fundamentals of architectural design, design solutions to specific architectural problems, and present design solutions to an audience."
+        },
+        {
+            "courseCode": "ARC 213",
+            "courseName": "Computer Aided Design for Architects II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Using possible creative way to create concept by using different architecture programs. Vision: Graphic, Creative, Stunning Architecture Presentation, using Architecture application.  "
+        },
+        {
+            "courseCode": "ARC 222",
+            "courseName": "History of Art and Architecture I",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "The History of Art and Architecture sequence traces the changes in art and architecture through various traditions, regions, overarching stylistic trends, and dates. For part I, these include: eastern and western pre-historic, ancient near east, Egyptian, Greek, Roman, Early Christian.  (Lecture, 3 hours)"
+        },
+        {
+            "courseCode": "ARC 230",
+            "courseName": "Digital Media in Architecture",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "In this course, the students learn the techniques and methodologies of modelling and post-editing for architectural projects. The course will teach techniques of rendering, lighting, texture and materials editing, together with the complete package of graphic arts related to the presentation of architectural design. The course is based on three families of programs: Photoshop and other apps of the ADOBE family; 3ds Max, from AUTODESK, and Power Point from Microsoft. The students will learn how to create virtual environments, how to plan realistic settings, how to render with natural and artificial lighting, how to post-edit their CAD modelling and how to publish their works with an effective style. Students will learn presentation techniques to an audience, with rational and well planned slides."
+        },
+        {
+            "courseCode": "ARC 231",
+            "courseName": "Building Science",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course is an introduction the natural forces that shape buildings, such as local climate and human need. It is the bases for making effective schematic design decisions for comfortable and energy efficient new buildings or improving existing buildings. Topics include sun angle, building orientation, sun shading, passive cooling, natural ventilation verses air conditioning, vernacular architecture, thermal comfort, tropical design, design for climate, day-lighting, heat transfer through materials, energy efficiency, radiation and reflective materials, storm water retention, and acoustics. Activities will include lectures, local building tours, and case studies."
+        },
+        {
+            "courseCode": "ARC 241",
+            "courseName": "Spatial Composition",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course covers basic principles of architectural design such as point, line, plane, volume, form, space, organization, circulation, proportion, scale, symmetry, hierarchy, rhythm, and transformation. The class will consist of illustrated lectures, in-class drawing, and discussion. Assignment will include a series of projects linked to the lectures, reading, and a visual notebook of student in-class drawing. The goal is to improve visual design vocabulary and awareness which will become useful in the architecture studio to generate new ideas and improve critical design judgment."
+        },
+        {
+            "courseCode": "ARC 242",
+            "courseName": "Interior Architecte",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "In this course the students learn the principles and techniques for designing a project of Interior Architecture. The course explains to the students the functional organization of an interior space, the basics of color scheme, furniture, and finishing choice and combination. Basics information about the main components of an architectural project are explained: walls, flooring, ceiling, opening. The students will not deal with structural elements. The students will learn the rationale of coordinating the architectural project with graphic arts, advertisement and corporate image criteria. The students will develop a small project of interior architecture, with 2D and 3D drawings."
+        },
+        {
+            "courseCode": "ARC 244",
+            "courseName": "Integrating Digital and Physical Design",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "N/A"
+        },
+        {
+            "courseCode": "ARC 246",
+            "courseName": "Landscape Architecture",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "N/A"
+        },
+        {
+            "courseCode": "ARC 282",
+            "courseName": "History of Architecture and Arts III",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "The History of Art and Architecture sequence traces the changes in art and architecture through various traditions, regions, overarching stylistic trends, and dates. For part III, these include: 20th century modern and global trends/movements in art and architecture.  (Lecture, 3 hours)"
+        },
+        {
+            "courseCode": "ARC 301",
+            "courseName": "Architectural Design III",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This is the third course in the architectural design-studio sequence. In it, students take on a large-scale architectual design project, details of which may vary from year to year. Projects involve researching and analyzing programmatic requirements of a design problem,and then producing at least one design solution and present them using methods appropriate to the design, the cutomers, and their needs.Upon successful completion of this course, students should be able to describe methodologies used in actual architectural offices, design solutions to specific architectural problems, and present design solutions using appropriate graphic and model-building techniques. On a higher level, students should begin to see their work as in a larger context: as contributing to a uniquely Khmer-style of architecture, meeting modern international standatrds and supporting a sustainable and vibrant future for Cambodia. "
+        },
+        {
+            "courseCode": "ARC 302",
+            "courseName": "Architectural Design IV",
+            "credit": 6, 
+            "faculty": "Faculty of Engineering",
+            "description": "This is an advanced architectural design studio course where the students are assigned a rather complex project and develop the solution by investigating landscaping, architecture, structure, and building’s systems. Students will work with advanced tools of the BIM technologies. Assigned projects include landscaping, massing, vehicular circulation, internal circulation, functional design, façade design and coordination with structural design and MEP. Assigned projects include bi-dimensional and three-dimensional representations, schedules of materials and components, short videos. Design development follows the division typical of architectural professional offices with ‘concept design’ followed by ‘detail design’, with the final delivery of a complete package of documents ‘For Construction’. Upon successful completion of this course, students should be able to describe real-life examples of buildings similar to selected problems, design solutions to specific architectural problems, and present design solutions using appropriate graphic and model-building techniques. Students learn how to design a large-scale complete building."
+        },
+        {
+            "courseCode": "ARC 312",
+            "courseName": "Building's Systems (MEP)",
+            "credit": 4, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course is part of a series - strictly coordinated with MEP II - teaching the basics of the building's systems (services in EN-US), under the common acronym of MEP (Mechanical, Electrical and Plumbing). MEP I addresses mechanical systems, while MEP II addresses automation, electrical and lighting systems. The students will learn the basics of mechanical systems: Water, Air, Thermodynamics, Conveying systems, Acoustics, Fire Detection & Safety. At the end of the course, the students will be able to integrate the building's systems with Architecture (ARC) and Civil & Structural Engineering (C&S) disciplines. The students will research the market of mechanical systems and investigate state-of-the-art solutions and products. The students will learn the most important standards for mechanical systems (BSI, ASHRAE, IBC, NFPA, CIBSE, etc.) The students will design simple mechanical systems, implementing creative design solutions in a simple project of MEP."
+        },
+        {
+            "courseCode": "ARC 313",
+            "courseName": "Building's Systems (MEP) II",
+            "credit": 4, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course is part of a series - strictly coordinated with MEP I - teaching the basics of the building's systems (services in EN-US), under the common acronym of MEP (Mechanical, Electrical and Plumbing). MEP II addresses automation, electrical and lighting systems, while MEP I addresses mechanical systems. The students will learn the basics of electrical and electronic systems: Automation, Domotics, Electrical distribution system, Lighting systems for indoor and outdoor. At the end of the course, the students will be able to integrate the building's systems with Architecture (ARC) and Civil & Structural Engineering (C&S) disciplines. The students will research the market of electrical and electronic systems and investigate state-of-the-art solutions and products. The students will learn the most important standards for electrical and electronic systems (CIBSE, AASHTO, IES, CIE, etc.) The students will design a simple electrical system and an integrated lighting system, Implementing creative design solutions. "
+        },
+        {
+            "courseCode": "ARC 323",
+            "courseName": "History of Art and Architecture II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "The history of architecture and arts – part 2, will briefly introduce students to Early Christian, Islamic, Chinese, Scandinavian, Middle-ages European, Renaissance, French Baroque & Rococo culture, architecture, and arts. Students will be exposed to how culture, environment, religion and government influenced both the architecture and arts of each time period and area. Students will also explore different architectural precedence from each time period as well as how each era influenced contemporary architecture. "
+        },
+        {
+            "courseCode": "ARC 324",
+            "courseName": "History of Art and Architecture III",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "N/A"
+        },
+        {
+            "courseCode": "ARC 331",
+            "courseName": "Structural Design for Architecture I",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "Structural Design in Architecture studies the internal effects of stress and strain in a solid body that is subjected to an external loading. Stress is associated with the strength of the material from which the body is made, while strain is a measure of the deformation of the body. In addition to this, Structural Design in Architecture includes the study of the body’s stability when a body such as a column is subjected to compressive loading. A thorough understanding of the fundamentals of this subject is of vital importance because many concepts, phenomena, and formulae of structural engineering design are based upon the principles of this subject. Most importantly, it helps architects work with structural consultants and understand all the necessary considerations when designing structural systems. Finally, applications to simple structures are illustrated by a variety of examples. "
+        },
+        {
+            "courseCode": "ARC 332",
+            "courseName": "Structural Design in Architecture II",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "N/A"
+        },
+        {
+            "courseCode": "ARC 335",
+            "courseName": "Working Drawing",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This course is designed to allow the student to develop skills in design development and extended development documentation of your architectural design. This unit will reinforce the areas, which play a critical part in the course and the students' future professional practice."        },
+        {
+            "courseCode": "ARC 341",
+            "courseName": "Sustainable and Accessible Design",
+            "credit": 3, 
+            "faculty": "Faculty of Engineering",
+            "description": "This unit introduces students to environmental issues and supplies some in-depth understanding of the complexities and of the interactions that the design and construction professions must deal with to limit some of the irreversible damage that human settlement causes to the PlanetThe unit provides an approach to thinking about and designing the built environment whilst taking into account the direct impact of building construction on the natural environment. "
+        },
+        {
+            "courseCode": "ARC 401",
+            "courseName": "Architectural Design V",
+            "credit": 6, 
+            "faculty": "Faculty of Engineering",
+            "description": "Advanced architectural design and planning of buildings involving considerations of considerations of structural and functional complexity. "
+        },
+        {
+            "courseCode": "ARC 402",
+            "courseName": "Capstone Project for Architectural Design",
+            "credit": 6, 
+            "faculty": "Faculty of Engineering",
+            "description": "The purpose of the Capstone Project is for students to apply theoretical and practical knowledge acquired during their undergraduate program to a realistic and possibly real-world project.Prerequisite(s): Senior standing or permission of department"
+        }
+        
+
+
     ]
 }
