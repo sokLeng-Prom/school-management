@@ -1,6 +1,6 @@
 # How to run this program
 
-In your terminal, type json-server --watch db.json --port 3001
+In your terminal, type json-server --watch db.json --port 3001\
 Open a new terminal, type yarn start or npm start
 
 # Getting Started with Create React App
