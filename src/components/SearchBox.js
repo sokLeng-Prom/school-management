@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBox() {
+export default function SearchBox(props) {
   const classes = useStyles();
 
   return (
@@ -48,6 +48,7 @@ export default function SearchBox() {
       </IconButton>
       <InputBase
         className={classes.input}
+        onChange={(e) => props.fSearch(e.target.value, props.searchBy)}
         placeholder="Search"
         inputProps={{ "aria-label": "search google maps" }}
       />

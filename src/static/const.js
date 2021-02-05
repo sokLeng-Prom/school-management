@@ -21,6 +21,10 @@ const isLoggedIn = () => {
   return false;
 };
 
+const removeSpace = (string) => {
+  return string.split(" ").join("");
+};
+
 // const courses = [
 //   {
 //     courseCode: "ACC 101",
@@ -44,4 +48,5 @@ export {
   UUID_API_URL,
   stringToBoolean,
   isLoggedIn,
+  removeSpace,
 };

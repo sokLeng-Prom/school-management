@@ -265,7 +265,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DataTableDemo() {
+export default function DataTableDemo(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -273,14 +273,12 @@ export default function DataTableDemo() {
   const [page, setPage] = React.useState(0);
   //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [rows, setRows] = useState([]);
-  const fetch = async () => {
-    const resp = await axios.get(`${BASE_URL}/courses`);
-    setRows(resp.data);
-    // rows = resp.data;
-    // console.log(rows);
-  };
-  useEffect(() => fetch(), []);
+  // const [rows, setRows] = useState([]);
+  // const fetch = async () => {
+  //   const resp = await axios.get(`${BASE_URL}/courses`);
+  //   setRows(resp.data);
+  // };
+  // useEffect(() => fetch(), []);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -333,7 +331,7 @@ export default function DataTableDemo() {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -353,10 +351,10 @@ export default function DataTableDemo() {
               orderBy={orderBy}
               //   onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={props.rows.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(props.rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   {
@@ -423,7 +421,7 @@ export default function DataTableDemo() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={props.rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}
