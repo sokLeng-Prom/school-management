@@ -73,6 +73,13 @@ function App() {
             exact
             props={{ onSubmit: fSignIn }}
           />
+          <PublicRoute
+            restricted={false}
+            component={SignUp}
+            path="/sign-up"
+            exact
+            // props={{ onSubmit: fSignIn }}
+          />
           <PrivateRoute
             component={ResponsiveDrawer}
             path="/dashboard"
