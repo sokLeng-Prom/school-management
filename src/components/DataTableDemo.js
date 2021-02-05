@@ -25,13 +25,28 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import { BASE_URL } from "../static/const";
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function createData(courseCode, courseName, credit, faculty, description) {
   return { courseCode, courseName, credit, faculty, description };
 }
 
-// var rows = [];
+var rows = [
+  // createData("Cupcake", 305, 3.7, 67, 4.3),
+  // createData("Donut", 452, 25.0, 51, 4.9),
+  // createData("Eclair", 262, 16.0, 24, 6.0),
+  // createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  // createData("Gingerbread", 356, 16.0, 49, 3.9),
+  // createData("Honeycomb", 408, 3.2, 87, 6.5),
+  // createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  // createData("Jelly Bean", 375, 0.0, 94, 0.0),
+  // createData("KitKat", 518, 26.0, 65, 7.0),
+  // createData("Lollipop", 392, 0.2, 98, 0.0),
+  // createData("Marshmallow", 318, 0, 81, 2.0),
+  // createData("Nougat", 360, 19.0, 9, 37.0),
+  // createData("Oreo", 437, 18.0, 63, 4.0),
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -110,6 +125,13 @@ function ExpandableTableRow({ children, expandComponent, ...otherProps }) {
 }
 
 function EnhancedTableHead(props) {
+  const fetch = async () => {
+    const resp = await axios.get(`${BASE_URL}/courses`);
+    rows = resp.data;
+    console.log(rows);
+  };
+  useEffect(() => fetch(), []);
+
   const {
     classes,
     // onSelectAllClick,
@@ -172,13 +194,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   highlight:
     theme.palette.type === "light"
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark,
+      },
   title: {
     flex: "1 1 100%",
   },
@@ -265,7 +287,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DataTableDemo(props) {
+export default function DataTableDemo() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -273,12 +295,6 @@ export default function DataTableDemo(props) {
   const [page, setPage] = React.useState(0);
   //   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  // const [rows, setRows] = useState([]);
-  // const fetch = async () => {
-  //   const resp = await axios.get(`${BASE_URL}/courses`);
-  //   setRows(resp.data);
-  // };
-  // useEffect(() => fetch(), []);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -331,8 +347,9 @@ export default function DataTableDemo(props) {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+  const [showMore, setShowmore] = useState(false);
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -351,10 +368,10 @@ export default function DataTableDemo(props) {
               orderBy={orderBy}
               //   onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={props.rows.length}
+              rowCount={rows.length}
             />
             <TableBody>
-              {stableSort(props.rows, getComparator(order, orderBy))
+              {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   {
@@ -362,6 +379,7 @@ export default function DataTableDemo(props) {
                   }
 
                   const labelId = `enhanced-table-checkbox-${index}`;
+
                   return (
                     <ExpandableTableRow
                       key={index}
@@ -384,7 +402,12 @@ export default function DataTableDemo(props) {
                       <TableCell align="center">{row.courseName}</TableCell>
                       <TableCell align="center">{row.credit}</TableCell>
                       <TableCell align="center">{row.faculty}</TableCell>
-                      <TableCell align="center">{row.description}</TableCell>
+                      {console.log(showMore)}
+                      <TableCell align="center">{row.description.title}
+                      <span style={{ display: {showMore} ? "block" : "none" }}>{row.description.allText}</span>
+                      <span onClick={() => setShowmore(true)}>See More</span>
+                      <span style={{display: !{showMore} ? "block" : "none"}} onClick={() => setShowmore(false)}>See Less</span>
+                      </TableCell>
                     </ExpandableTableRow>
                     /* <TableRow
                       hover
@@ -421,7 +444,7 @@ export default function DataTableDemo(props) {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={props.rows.length}
+          count={rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}

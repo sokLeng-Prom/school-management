@@ -2,8 +2,8 @@
     "users": [
         {
             "id": "8a0b0814-5c7d-11eb-ae93-0242ac130002",
-            "username": "j.d",
-            "password": "jd123",
+            "username": "j.do",
+            "password": "jdo123",
             "personal_info": {
                 "name": "John Doe",
                 "age": 30,
@@ -16,14 +16,14 @@
             ],
             "data": {
                 "class": {
-                    "Business": {
+                    "ACC 351": {
                         "students": [
                             {
-                                "id": "315080ae-5c7e-11eb-ae93-0242ac130002",
+                                "id": "ccef2ddf-14cf-4d15-9231-6b846809b98f",
                                 "name": "Lucy Beck"
                             },
                             {
-                                "id": "c78f9e96-5c8e-11eb-ae93-0242ac130002",
+                                "id": "6a4444ba-d954-4617-99ee-510888f1a981",
                                 "name": "John Kepler"
                             }
                         ],
@@ -34,92 +34,408 @@
             }
         },
         {
-            "id": "315080ae-5c7e-11eb-ae93-0242ac130002",
-            "username": "l.b",
-            "password": "lb123",
+            "id": "86a3618e-2ee8-4e2d-ad28-80a7d90752f8",
+            "username": "a.bu",
+            "password": "abu123",
+            "personal_info": {
+                "name": "Aidan Butter",
+                "age": 28,
+                "national_id_num": "018456213",
+                "email": "ab@email.com"
+            },
+            "role": "teacher",
+            "major": [
+                "Banking"
+            ],
+            "data": {
+                "class": {
+                    "ACC 310": {
+                        "students": [
+                            {
+                                "id": "3872dc0c-9e8f-467b-936f-52b2e83db588",
+                                "name": "Harold Simmons"
+                            },
+                            {
+                                "id": "19b43636-6040-4ab1-bb34-30deeb8ebca1",
+                                "name": "Nicole Bennett"
+                            }
+                        ],
+                        "exam": [],
+                        "assignment": []
+                    }
+                }
+            }
+        },
+        {
+            "id": "d37ef172-de0b-4da7-82ab-d66c645e68c1",
+            "username": "a.pa",
+            "password": "apa123",
+            "personal_info": {
+                "name": "Alice Patterson",
+                "age": 25,
+                "national_id_num": "042587964",
+                "email": "apa@email.com"
+            },
+            "role": "teacher",
+            "major": [
+                "Architecture"
+            ],
+            "data": {
+                "class": {
+                    "AE 441": {
+                        "students": [
+                            {
+                                "id": "166671db-9893-48e2-bdc4-1e1585b10df1",
+                                "name": "Gabriela Flores"
+                            },
+                            {
+                                "id": "2a691a1a-9680-4f55-9ada-cb06dc325dbb",
+                                "name": "Nicole Sanders"
+                            }
+                        ],
+                        "exam": [],
+                        "assignment": []
+                    }
+                }
+            }
+        },
+        {
+            "id": "ab1065da-077b-4bbc-b131-17f254c42079",
+            "username": "r.hu",
+            "password": "rhu123",
+            "personal_info": {
+                "name": "Rose Hughes",
+                "age": 30,
+                "national_id_num": "012752148",
+                "email": "rhu@email.com"
+            },
+            "role": "teacher",
+            "major": [
+                "Engineering"
+            ],
+            "data": {
+                "class": {
+                    "AE 301": {
+                        "students": [
+                            {
+                                "id": "d6c5f975-a405-4c00-822d-62309cfdcfbb",
+                                "name": "Valentina Sanders"
+                            },
+                            {
+                                "id": "63ec2ad7-5905-4cd4-8ac7-6ffef831345f",
+                                "name": "Kathie Matthews"
+                            }
+                        ],
+                        "exam": [],
+                        "assignment": []
+                    }
+                }
+            }
+        },
+        {
+            "id": "db7aac2b-adba-4c64-93ea-c1b39d68c4d4",
+            "username": "l.wa",
+            "password": "lwa123",
+            "personal_info": {
+                "name": "Luna Watkins",
+                "age": 27,
+                "national_id_num": "012542369",
+                "email": "lua@email.com"
+            },
+            "role": "teacher",
+            "major": [
+                "Engineering"
+            ],
+            "data": {
+                "class": {
+                    "AE 335": {
+                        "students": [
+                            {
+                                "id": "a544f6a5-d908-4671-8b22-7de39bc1954a",
+                                "name": "Angelique Murphy"
+                            },
+                            {
+                                "id": "1f8b4900-110c-49f7-972a-8e73dbcd6df0",
+                                "name": "Gemma Bell"
+                            }
+                        ],
+                        "exam": [],
+                        "assignment": []
+                    }
+                }
+            }
+        },
+        {
+            "id": "ccef2ddf-14cf-4d15-9231-6b846809b98f",
+            "username": "l.be",
+            "password": "lbe123",
             "personal_info": {
                 "name": "Lucy Beck",
-                "age": 30,
-                "national_id_num": "023456789",
-                "email": "lc@email.com"
+                "age": 10,
+                "national_id_num": "024125789",
+                "email": "lbe@email.com"
             },
             "role": "student",
-            "major": [
-                "Business",
-                "Computer Science"
-            ],
-            "data": {}
+            
+            "data": {
+                "class":{
+                    "ACC 351":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "6a4444ba-d954-4617-99ee-510888f1a981",
+            "username": "j.ke",
+            "password": "jke123",
+            "personal_info": {
+                "name": "John Kepler",
+                "age": 10,
+                "national_id_num": "035414575",
+                "email": "jke@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "ACC 351":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "3872dc0c-9e8f-467b-936f-52b2e83db588",
+            "username": "h.si",
+            "password": "hsi123",
+            "personal_info": {
+                "name": "Harold Simmons",
+                "age": 12,
+                "national_id_num": "014521275",
+                "email": "hsi@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "ACC 310":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "19b43636-6040-4ab1-bb34-30deeb8ebca1",
+            "username": "n.be",
+            "password": "nbe123",
+            "personal_info": {
+                "name": "Nicole Bennett",
+                "age": 11,
+                "national_id_num": "075145628",
+                "email": "nbe@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "ACC 310":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "166671db-9893-48e2-bdc4-1e1585b10df1",
+            "username": "g.fl",
+            "password": "gfl123",
+            "personal_info": {
+                "name": "Gabriela Flores",
+                "age": 10,
+                "national_id_num": "014785236",
+                "email": "gfl@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 441":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "2a691a1a-9680-4f55-9ada-cb06dc325dbb",
+            "username": "n.sa",
+            "password": "nsa123",
+            "personal_info": {
+                "name": "Nicole Sanders",
+                "age": 10,
+                "national_id_num": "017521456",
+                "email": "nsa@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 441":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "d6c5f975-a405-4c00-822d-62309cfdcfbb",
+            "username": "v.sa",
+            "password": "vsa123",
+            "personal_info": {
+                "name": "Valentina Sanders",
+                "age": 10,
+                "national_id_num": "074158236",
+                "email": "vsa@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 301":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "63ec2ad7-5905-4cd4-8ac7-6ffef831345f",
+            "username": "k.ma",
+            "password": "kma123",
+            "personal_info": {
+                "name": "Kathie Matthews",
+                "age": 11,
+                "national_id_num": "027412569",
+                "email": "kma@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 301":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "a544f6a5-d908-4671-8b22-7de39bc1954a",
+            "username": "a.mu",
+            "password": "amu123",
+            "personal_info": {
+                "name": "Angelique Murphy",
+                "age": 10,
+                "national_id_num": "024147852",
+                "email": "amu@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 335":{
+
+                    }
+                }
+            }
+        },
+        {
+            "id": "1f8b4900-110c-49f7-972a-8e73dbcd6df0",
+            "username": "g.be",
+            "password": "gbe123",
+            "personal_info": {
+                "name": "Gemma Bell",
+                "age": 10,
+                "national_id_num": "027411597",
+                "email": "gbe@email.com"
+            },
+            "role": "student",
+            
+            "data": {
+                "class":{
+                    "AE 335":{
+
+                    }
+                }
+            }
         }
+        
     ],
     "courses": [
         {
             "courseCode": "ACC 101",
             "courseName": "Principles of Accounting",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "This foundation course is designed to introduce students to the fundamentals of preparing and recording financial documentation from originating documents and processing ledger transactions up to the trial balance stage. The course mainly covers the knowledge of fundamental accounting concepts for different types of business entities, including the purpose of accounting, the users of accounting information and an introduction to recording transactional accounting data in the double entry bookkeeping system. The course specifically concentrates in depth on recording, processing, and reporting business transactions and events, including the specific accounting for basic financial statement items, which are prerequisites for preparation of final accounts. Overall, the course aims to help students to develop knowledge and understanding of the main types of business transactions and documentation and how these are recorded in an accounting system up to the trial balance stage. "
         },
         {
             "courseCode": "ACC 201",
             "courseName": "Principles of Accounting I",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "Intended for students with no previous exposure to financial accounting, this course provides students the knowledge and skills necessary to read, understand, and analyze financial statements. In particular, this course covers: how to record and maintain accounting records (i.e., bookkeeping and accrual accounting), how to prepare and interpret a firm's primary financial statements (i.e., the balance sheet, the income statement, and the statement of cash flows). Overall, the course adopts a decision-making perspective on accounting, emphasizing the relationships between accounting data and the underlying economic events that generated them."
         },
         {
             "courseCode": "ACC 202",
             "courseName": "Principles of Accounting II",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "Buildng on the material from ACC 201, this course focusses on financial accounting concepts and financial reporting.  Students will learn how decision makers analyse, interpret, and use accounting information. In particula, students will take a close look at how the accounting system measures, records, and reports economic activities, as well as the relationship between accrual and cash flow measures in interpreting accounting information, calculating inventory, receivables, and ensuring control over company assets."
         },
         {
             "courseCode": "ACC 203",
             "courseName": "Principles of Accounting - ACCA F3",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "Discontinued"
         },
         {
             "courseCode": "ACC 301",
             "courseName": "Financial Accounting",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "Financial Accounting introduces the double-entry accounting system and extends the understanding of the basic principles of financial accounting. Students who successfully complete this course should be able to identify, understand and apply basic financial accounting principles in the preparation of accounting reports."
         },
         {
             "courseCode": "ACC 310",
             "courseName": "Managerial Accounting",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "This course provides an introduction to the fundamentals of management accounting. Topics include cost accounting terminology, job costing, process costing, activity-based costing, activity-based management, cost-volume-profit analysis, budgeting, standard costing, variance analysis, responsibility accounting, variable costing, transfer pricing and decision making."
         },
         {
             "courseCode": "ACC 351",
             "courseName": "Financial Reporting",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "The aim of the course is to develop knowledge and skills in understanding and applying accounting standards and the theoretical framework in the preparation of financial statements of entities, including groups and how to analyse and interpret those financial statements."
         },
         {
             "courseCode": "ACC 352",
             "courseName": "Financial Reporting II",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "Discontinued"
         },
         {
             "courseCode": "ACC 411",
             "courseName": "Auditing 1",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "A study of the planning, evidence gathering, internal control review, sampling, and application of procedures used to audit assets, liabilities, equity and related income statement accounts of a profit-oriented enterprise. The reporting requirements for compilation and review services and a thorough study of the types of audit opinions will also be studied. "
         },
         {
             "courseCode": "ACC 412",
             "courseName": "Auditing 2",
             "credit": 3,
-            "faculty": "Faculty of Engineering",
+            "faculty": "Faculty of Economics and Administrative Sciences",
             "description": "This course further expands the study of the procedures used to audit profit-oriented enterprise and extends them to other forms of organization. The reporting requirements for compilation and review services and a thorough study of the types of audit opinions is also be studied. "
         },
         {
