@@ -21,6 +21,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Courses from "../template/Courses";
 import Classroom from "../template/Classroom";
 
+import { Redirect, useHistory } from "react-router-dom";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -71,6 +73,14 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const history = useHistory();
+  const logOut = () => {
+    if (localStorage.getItem("id")) localStorage.removeItem("id");
+    if (sessionStorage.getItem("id")) sessionStorage.removeItem("id");
+
+    history.push("/sign-in");
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 0:
@@ -104,8 +114,8 @@ function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
+        {["All mail", "Trash", "Logout"].map((text, index) => (
+          <ListItem button key={text} onClick={() => logOut()}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
