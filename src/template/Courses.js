@@ -11,7 +11,7 @@ import axios from "axios";
 
 export default function Courses() {
   const [rows, setRows] = useState([]);
-  const [temp, setTemp] = useState([]);
+  const [filteredRows, setFilteredRows] = useState([]);
 
   const [searchBy, setSearchBy] = useState(["courseCode"]);
 
@@ -22,20 +22,20 @@ export default function Courses() {
   const fetch = async () => {
     const resp = await axios.get(`${BASE_URL}/courses`);
     setRows(resp.data);
-    setTemp(resp.data);
+    setFilteredRows(resp.data);
   };
   useEffect(() => fetch(), []);
 
   const fSearch = (query, queryType) => {
     if (query.length === 0) {
-      setRows(temp);
+      setFilteredRows(rows);
     } else {
       const filteredArr = rows.filter((row) =>
         removeSpace(row[queryType].toLowerCase()).includes(
           removeSpace(query.toLowerCase())
         )
       );
-      setRows(filteredArr);
+      setFilteredRows(filteredArr);
     }
   };
 
@@ -72,7 +72,7 @@ export default function Courses() {
             searchByHandler={searchByHandler}
           ></Selector>
         </div>
-        <DataTableDemo rows={rows}></DataTableDemo>
+        <DataTableDemo filteredRows={filteredRows}></DataTableDemo>
       </div>
     </div>
   );

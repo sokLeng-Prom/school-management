@@ -331,7 +331,8 @@ export default function DataTableDemo(props) {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
+    rowsPerPage -
+    Math.min(rowsPerPage, props.filteredRows.length - page * rowsPerPage);
 
   const [showMore, setShowmore] = useState(false);
   return (
@@ -352,10 +353,10 @@ export default function DataTableDemo(props) {
               orderBy={orderBy}
               //   onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={props.rows.length}
+              rowCount={props.filteredRows.length}
             />
             <TableBody>
-              {stableSort(props.rows, getComparator(order, orderBy))
+              {stableSort(props.filteredRows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   {
@@ -438,7 +439,7 @@ export default function DataTableDemo(props) {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={props.rows.length}
+          count={props.filteredRows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}
