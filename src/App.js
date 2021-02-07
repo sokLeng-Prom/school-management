@@ -53,43 +53,67 @@ function App() {
   };
 
   // to be done
-  const fSignUp = async () => {
+  const fSignUp = async (response) => {
     // uuid req
     const uuid = await getUUID();
+    //post data to db.json
+    const param = {
+      id: getUUID,
+      username: response.username,
+      password: response.password,
+      personal_info: {
+        name: response.personal_info.name,
+        age: response.personal_info.age,
+        national_id_num: response.personal_info.national_id_num,
+        email: response.personal_info.email,
+      },
+      role: response.role,
+      major: response.major,
+      data: {
+        class: response.data.class,
+        exam: response.data.exam,
+        assignment: response.data.assignment
+      },
+
+
+    }
+
+    const res = await axios.post(`${BASE_URL}/users`, param);
+    console.log(res.data)
   };
 
   return (
     <div className="App">
-      {/* <ScoreSheet /> */}
+      {/* <ScoreSheet /> */ }
       <Router>
         <Switch>
           <Route path="/" exact>
             <Redirect to="/sign-in" />
           </Route>
           <PublicRoute
-            restricted={true}
-            component={SignIn}
+            restricted={ true }
+            component={ SignIn }
             path="/sign-in"
             exact
-            props={{ onSubmit: fSignIn }}
+            props={ { onSubmit: fSignIn } }
           />
           <PublicRoute
-            restricted={false}
-            component={SignUp}
+            restricted={ false }
+            component={ SignUp }
             path="/sign-up"
             exact
-            // props={{ onSubmit: fSignIn }}
+            props={ { onSubmit: fSignUp } }
           />
           <PrivateRoute
-            component={ResponsiveDrawer}
+            component={ ResponsiveDrawer }
             path="/dashboard"
-            props={{ selected: "Dashboard" }}
+            props={ { selected: "Dashboard" } }
             exact
           />
           <PrivateRoute
-            component={ResponsiveDrawer}
+            component={ ResponsiveDrawer }
             path="/classroom"
-            props={{ selected: "Classroom" }}
+            props={ { selected: "Classroom" } }
             exact
           />
           <Route>
@@ -98,9 +122,9 @@ function App() {
         </Switch>
       </Router>
 
-      {/* <SignIn onSubmit={fSignIn} /> */}
-      {/* <AttendanceSheet></AttendanceSheet> */}
-      {/* {console.log(users[0].data.students)} */}
+      {/* <SignIn onSubmit={fSignIn} /> */ }
+      {/* <AttendanceSheet></AttendanceSheet> */ }
+      {/* {console.log(users[0].data.students)} */ }
     </div>
   );
 }

@@ -1,6 +1,5 @@
 {
-    "users": [
-        {
+    "users": [{
             "id": "8a0b0814-5c7d-11eb-ae93-0242ac130002",
             "username": "j.do",
             "password": "jdo123",
@@ -17,8 +16,7 @@
             "data": {
                 "class": {
                     "ACC 351": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "ccef2ddf-14cf-4d15-9231-6b846809b98f",
                                 "name": "Lucy Beck"
                             },
@@ -50,8 +48,7 @@
             "data": {
                 "class": {
                     "ACC 310": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "3872dc0c-9e8f-467b-936f-52b2e83db588",
                                 "name": "Harold Simmons"
                             },
@@ -83,8 +80,7 @@
             "data": {
                 "class": {
                     "AE 441": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "166671db-9893-48e2-bdc4-1e1585b10df1",
                                 "name": "Gabriela Flores"
                             },
@@ -116,8 +112,7 @@
             "data": {
                 "class": {
                     "AE 301": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "d6c5f975-a405-4c00-822d-62309cfdcfbb",
                                 "name": "Valentina Sanders"
                             },
@@ -130,8 +125,7 @@
                         "assignment": []
                     },
                     "AE 335": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "a544f6a5-d908-4671-8b22-7de39bc1954a",
                                 "name": "Angelique Murphy"
                             },
@@ -163,8 +157,7 @@
             "data": {
                 "class": {
                     "AE 335": {
-                        "students": [
-                            {
+                        "students": [{
                                 "id": "a544f6a5-d908-4671-8b22-7de39bc1954a",
                                 "name": "Angelique Murphy"
                             },
@@ -348,10 +341,60 @@
                     "AE 335": {}
                 }
             }
+        },
+        {
+            "id": "RwBWegF"
+        },
+        {
+            "id": "c7z3JP3"
+        },
+        {
+            "id": "MKJ-ZIf"
+        },
+        {
+            "id": "bWz4g7M"
+        },
+        {
+            "id": "fVo3tp7"
+        },
+        {
+            "id": "xiER1zR"
+        },
+        {
+            "id": "cFKb5q9"
+        },
+        {
+            "id": "aB8qJVJ"
+        },
+        {
+            "username": "osart",
+            "password": "osart123",
+            "personal_info": {
+                "name": "Oun Sart",
+                "age": "18",
+                "national_id_num": "00099876",
+                "email": "ounsart@gmail.com"
+            },
+            "role": "10",
+            "data": {},
+            "id": "c5qYhGN"
+        },
+
+        {
+            "username": "hadobesmith",
+            "password": "adobesmith123",
+            "personal_info": {
+                "name": "Henry Adobesmith",
+                "age": "40",
+                "national_id_num": "00998776",
+                "email": "hadobesmith@school.edu.kh"
+            },
+            "role": "20",
+            "data": {},
+            "id": "VsaFNkb"
         }
     ],
-    "courses": [
-        {
+    "courses": [{
             "courseCode": "ACC 101",
             "courseName": "Principles of Accounting",
             "credit": 3,

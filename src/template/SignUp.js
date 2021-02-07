@@ -26,12 +26,12 @@ import { BASE_URL, isNumber, isEmail } from "../static/const";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
+      {"Copyright © " }
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      </Link>{ " " }
+      {new Date().getFullYear() }
+      {"." }
     </Typography>
   );
 }
@@ -83,21 +83,36 @@ export default function SignUp(props) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const data = await props.onSubmit();
-    console.log(data);
+    const data = await props.onSubmit({
+
+      username: userName,
+      password: passWord,
+      personal_info: {
+        name: firstName + " " + lastName,
+        age: age,
+        national_id_num: nationalIDNumber,
+        email: emailAddress,
+      },
+      role: role,
+      major: major,
+      data: {
+
+      },
+    });
+
   };
   // info needed: age, name, email, national_id_num, role, major, username, password
   return (
     <Container component="main" maxWidth="sm">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <div className={ classes.paper }>
+        <Avatar className={ classes.avatar }>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h4">
           Registration Page(Admin Access Only)
         </Typography>
-        <form className={classes.form} onSubmit={submitHandler}>
+        <form className={ classes.form } onSubmit={ submitHandler }>
           <Grid container alignItems="center">
             <Grid item xs>
               <Typography gutterBottom variant="h6">
@@ -107,8 +122,8 @@ export default function SignUp(props) {
           </Grid>
           <Divider variant="middle" />
           <br></br>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={6}>
+          <Grid container spacing={ 1 }>
+            <Grid item xs={ 12 } sm={ 6 }>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -117,11 +132,11 @@ export default function SignUp(props) {
                 fullWidth
                 id="firstName"
                 label="First Name"
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={ (e) => setFirstName(e.target.value) }
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={ 12 } sm={ 6 }>
               <TextField
                 variant="outlined"
                 required
@@ -129,13 +144,13 @@ export default function SignUp(props) {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={ (e) => setLastName(e.target.value) }
                 autoComplete="lname"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={ 12 }>
               <TextField
-                error={ageInputValidation ? false : true}
+                error={ ageInputValidation ? false : true }
                 helperText={
                   ageInputValidation
                     ? ""
@@ -147,7 +162,7 @@ export default function SignUp(props) {
                 id="Age"
                 label="Age"
                 name="Age"
-                onChange={(e) => {
+                onChange={ (e) => {
                   if (
                     !isNumber(e.target.value) &&
                     parseInt(e.target.value) > 100
@@ -157,14 +172,14 @@ export default function SignUp(props) {
                     setAgeInputValidation(true);
                     setAge(e.target.value);
                   }
-                }}
+                } }
                 autoComplete="lname"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={ 12 }>
               <TextField
-                error={emailInputValidation ? false : true}
-                helperText={emailInputValidation ? "" : "Input must an email"}
+                error={ emailInputValidation ? false : true }
+                helperText={ emailInputValidation ? "" : "Input must an email" }
                 variant="outlined"
                 required
                 fullWidth
@@ -172,17 +187,17 @@ export default function SignUp(props) {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                onChange={(e) => {
+                onChange={ (e) => {
                   if (!isEmail(e.target.value)) {
                     setEmailInputValidation(false);
                   } else {
                     setEmailInputValidation(true);
                     setEmailAddress(e.target.value);
                   }
-                }}
+                } }
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={ 12 }>
               <TextField
                 variant="outlined"
                 required
@@ -190,6 +205,7 @@ export default function SignUp(props) {
                 id="national_id_num"
                 label="National ID Number"
                 name="National ID Number"
+                onChange={ (e) => setNationalIDNumber(e.target.value) }
                 autoComplete="email"
               />
             </Grid>
@@ -204,8 +220,8 @@ export default function SignUp(props) {
           </Grid>
           <Divider variant="middle" />
           <br></br>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
+          <Grid container spacing={ 2 }>
+            <Grid item xs={ 12 }>
               <TextField
                 variant="outlined"
                 required
@@ -214,9 +230,10 @@ export default function SignUp(props) {
                 label="Username"
                 name="username"
                 autoComplete="username"
+                onChange={ (e) => setUserName(e.target.value) }
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={ 12 }>
               <TextField
                 variant="outlined"
                 required
@@ -226,52 +243,54 @@ export default function SignUp(props) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={ (e) => setPassWord(e.target.value) }
               />
             </Grid>
-            <Grid item xs={6}>
-              <FormControl className={classes.formControl}>
+            <Grid item xs={ 6 }>
+              <FormControl className={ classes.formControl }>
                 <InputLabel shrink htmlFor="age-native-label-placeholder">
                   Role
                 </InputLabel>
                 <NativeSelect
                   required
                   // value={state.age}
-                  // onChange={handleChange}
-                  // inputProps={{
-                  //   name: "age",
-                  //   id: "age-native-label-placeholder",
-                  // }}
+                  onChange={ (e) => setRole(e.target.value) }
+                // inputProps={{
+                //   name: "age",
+                //   id: "age-native-label-placeholder",
+                // }}
                 >
                   <option value="">None</option>
-                  <option value={10}>Student</option>
-                  <option value={20}>Teacher</option>
-                  <option value={30}>Admin</option>
+                  <option value={ 10 }>Student</option>
+                  <option value={ 20 }>Teacher</option>
+                  <option value={ 30 }>Admin</option>
                 </NativeSelect>
               </FormControl>
             </Grid>
             <Grid item>
-              <FormControl className={classes.formControl}>
+              <FormControl className={ classes.formControl }>
                 <InputLabel shrink htmlFor="age-native-label-placeholder">
                   Major
                 </InputLabel>
                 <NativeSelect
                   required
-                  // value={state.age}
-                  // onChange={handleChange}
-                  // inputProps={{
-                  //   name: "age",
-                  //   id: "age-native-label-placeholder",
-                  // }}
+                // value={state.age}
+                // 
+                // inputProps={{
+                //   name: "age",
+                //   id: "age-native-label-placeholder",
+                // }}
                 >
                   <option value="">None</option>
-                  <option value={10}>Computer Science</option>
-                  <option value={20}>Business</option>
-                  {/* <option value={30}>Admin</option> */}
+                  <option value={ 10 }>Computer Science</option>
+                  <option value={ 20 }>Business</option>
+                  onChange={ (e) => setMajor(e.target.value) }
+                  {/* <option value={30}>Admin</option> */ }
                 </NativeSelect>
               </FormControl>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={ 12 }>
               <FormControlLabel
                 control={
                   <Checkbox required value="allowExtraEmails" color="primary" />
@@ -285,7 +304,7 @@ export default function SignUp(props) {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={ classes.submit }
           >
             Sign Up
           </Button>
@@ -298,7 +317,7 @@ export default function SignUp(props) {
           </Grid> */}
         </form>
       </div>
-      <Box mt={5}>
+      <Box mt={ 5 }>
         <Copyright />
       </Box>
     </Container>
