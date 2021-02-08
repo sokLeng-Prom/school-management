@@ -1,11 +1,13 @@
 import ControlledAccordion from "../components/ControlledAccordion";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { BASE_URL } from "../static/const";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +19,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Classroom() {
   const classes = useStyles();
+  const [data, setData] = useState([]);
+
+  const fetch = async () => {
+    const resp = await axios.get(
+      `${BASE_URL}/users?id=${localStorage.getItem("id")}`
+    );
+    setData(Object.values(resp.data[0].data.class));
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
   const mockClassroom = [
     {
       courseCode: "ACC 101",
@@ -67,7 +82,7 @@ export default function Classroom() {
   return (
     <div className={classes.root}>
       {/* <ControlledAccordion></ControlledAccordion> */}
-      {mockClassroom.map((course) => (
+      {data.map((course) => (
         <ControlledAccordion course={course}></ControlledAccordion>
       ))}
     </div>
