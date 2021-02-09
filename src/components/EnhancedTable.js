@@ -331,8 +331,7 @@ export default function DataTableDemo(props) {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    rowsPerPage -
-    Math.min(rowsPerPage, props.filteredRows.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, props.rows.length - page * rowsPerPage);
 
   const [showMore, setShowmore] = useState(false);
   return (
@@ -353,10 +352,10 @@ export default function DataTableDemo(props) {
               orderBy={orderBy}
               //   onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={props.filteredRows.length}
+              rowCount={props.rows.length}
             />
             <TableBody>
-              {stableSort(props.filteredRows, getComparator(order, orderBy))
+              {stableSort(props.rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   {
@@ -387,7 +386,7 @@ export default function DataTableDemo(props) {
                       <TableCell align="center">{row.courseName}</TableCell>
                       <TableCell align="center">{row.credit}</TableCell>
                       <TableCell align="center">{row.faculty}</TableCell>
-                      {console.log(showMore)}
+                      {/* {console.log(showMore)} */}
                       <TableCell align="center">
                         {row.description.title}
                         <span
@@ -439,7 +438,7 @@ export default function DataTableDemo(props) {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={props.filteredRows.length}
+          count={props.rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onChangePage={handleChangePage}

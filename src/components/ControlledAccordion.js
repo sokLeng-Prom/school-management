@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+// import MediaControlCard from "../components/MediaControlCard";
+
+import attendanceLogo from "../static/img/attendanceLogo.svg";
+
+// import FullScreenDialogue from "../components/FullScreenDialogue";
+
+import MediaControlCardWithDialogue from "../components/MediaControlCardWithDialogue";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,18 +30,33 @@ const useStyles = makeStyles((theme) => ({
     margin: "3rem",
     boxShadow: "none",
   },
-  test: {
-    backgroundColor: "orange",
+  detail: {
+    display: "flex",
+    justifyContent: "space-between",
+    // width: "80%",
+    cursor: "pointer",
   },
 }));
 
 export default function ControlledAccordions(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  const cardMedia = [attendanceLogo, attendanceLogo, attendanceLogo];
   // const handleChange = () => {
   //   setExpanded(!expanded);
   // };
+
+  // const [data, setData] = useState(props.course.data);
+
+  // useEffect(() => {
+  //   // let a = [...data["assignments"]];
+  //   // console.log(data["attendance"]);
+  //   // console.log(props.course.data["quiz"]);
+  //   // let b = [...data["quiz"]];
+  //   // let c = [...data["assignments"]];
+
+  //   // console.log(a);
+  // }, []);
 
   return (
     <div className={classes.root}>
@@ -52,11 +74,22 @@ export default function ControlledAccordions(props) {
             {props.course.courseCode} - {props.course.courseName}
           </Typography>
           <Typography className={classes.secondaryHeading}>
-            Sotheara Veng
+            Touch NgounChhay
           </Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          <Typography>PHD</Typography>
+        <AccordionDetails className={classes.detail}>
+          {/* <MediaControlCard></MediaControlCard> */}
+          {Object.keys(props.course.data).map((title, index) => (
+            <MediaControlCardWithDialogue
+              title={title.toUpperCase()}
+              // data={props.course.data[title]}
+              data={props.course.data[title]}
+              image={cardMedia[index]}
+            >
+              {/* {console.log(data[title])} */}
+            </MediaControlCardWithDialogue>
+          ))}
+          {/* <Typography>PHD</Typography> */}
         </AccordionDetails>
       </Accordion>
     </div>

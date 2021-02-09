@@ -2,8 +2,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 
 import SearchBox from "../components/SearchBox";
-import DataTable from "../components/DataTable";
-import DataTableDemo from "../components/DataTableDemo";
+import EnhancedTable from "../components/EnhancedTable";
 import Selector from "../components/selector";
 
 import { BASE_URL, removeSpace } from "../static/const";
@@ -72,7 +71,7 @@ export default function Courses() {
             searchByHandler={searchByHandler}
           ></Selector>
         </div>
-        <DataTableDemo filteredRows={filteredRows}></DataTableDemo>
+        <EnhancedTable rows={filteredRows}></EnhancedTable>
       </div>
     </div>
   );
