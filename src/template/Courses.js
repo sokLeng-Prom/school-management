@@ -61,7 +61,7 @@ export default function Courses() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <div className={classes.drawer}></div>
+      {/* <div className={classes.drawer}></div> */}
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
         <div className={classes.toolbar}>

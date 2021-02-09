@@ -26,7 +26,7 @@ export default function MediaControlCardWithDialogue(props) {
         title={props.title}
         open={open}
         handleClick={handleClick}
-        name={"SCARY"}
+        data={props.data}
       ></FullScreenDialogue>
     </div>
   );

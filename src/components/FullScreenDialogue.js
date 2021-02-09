@@ -40,7 +40,27 @@ export default function FullScreenDialog(props) {
   //     console.log(open);
   //   };
 
-  useEffect(() => console.log(props), []);
+  useEffect(() => console.log(props.data), []);
+
+  const conditionalRendering = (item, index) => {
+    if (props.title === "ATTENDANCE") {
+      return (
+        <FolderList
+          title={`Week ${index + 1}`}
+          status={item.status}
+          date={item.date}
+        ></FolderList>
+      );
+    } else if (props.title === "ASSIGNMENTS") {
+      return (
+        <FolderList
+          title={`Week ${index + 1}`}
+          status={item.status}
+          date={item.date}
+        ></FolderList>
+      );
+    }
+  };
 
   return (
     <div>
@@ -74,13 +94,14 @@ export default function FullScreenDialog(props) {
         </AppBar>
         {/* <EnhancedTable rows={props.data.attendance}></EnhancedTable> */}
         {/* <List> */}
-        {/* {props.data.map((item, index) => (
+        {props.data.map((item, index) => (
           <FolderList
-            title={`Week ${index}`}
+            type={props.title}
+            title={`Week ${index + 1}`}
             status={item.status}
             date={item.date}
           ></FolderList>
-        ))} */}
+        ))}
         {/* <ListItem button>
             <ListItemText primary="Phone ringtone" secondary="Titania" />
           </ListItem>
