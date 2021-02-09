@@ -12,17 +12,22 @@ export default function MediaControlCardWithDialogue(props) {
   //   }, []);
 
   const handleClick = () => {
+    console.log("FUCK THIS SHIT");
     setOpen(!open);
   };
   return (
-    <MediaControlCard title={props.title} image={props.image}>
-      {/* <FullScreenDialogue
-        name={"Testing"}
-        // title={props.title}
-        // open={open}
-        // handleClick={handleClick}
-        // name={props.title}
-      ></FullScreenDialogue> */}
-    </MediaControlCard>
+    <div>
+      <MediaControlCard
+        handleClick={handleClick}
+        title={props.title}
+        image={props.image}
+      ></MediaControlCard>
+      <FullScreenDialogue
+        title={props.title}
+        open={open}
+        handleClick={handleClick}
+        name={"SCARY"}
+      ></FullScreenDialogue>
+    </div>
   );
 }

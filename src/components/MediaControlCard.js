@@ -44,7 +44,7 @@ export default function MediaControlCard(props) {
   const theme = useTheme();
 
   return (
-    <Card className={classes.root} onClick={handleClick}>
+    <Card className={classes.root} onClick={props.handleClick}>
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
