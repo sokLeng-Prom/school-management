@@ -8,10 +8,24 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // import MediaControlCard from "../components/MediaControlCard";
 
 import attendanceLogo from "../static/img/attendanceLogo.svg";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 // import FullScreenDialogue from "../components/FullScreenDialogue";
 
 import MediaControlCardWithDialogue from "../components/MediaControlCardWithDialogue";
+const theme = createMuiTheme({
+  overrides: {
+    MuiAccordion: {
+      root: {
+        // backgroundColor: "red",
+        // fontSize: "1rem",
+        "&::before": {
+          backgroundColor: "white",
+        },
+      },
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
   accordion: {
     margin: "3rem",
     boxShadow: "none",
+    // border: "none",
+    backgroundColor: "white !important",
   },
   detail: {
     display: "flex",
@@ -40,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ControlledAccordions(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  // const [expanded, setExpanded] = React.useState(false);
   const cardMedia = [attendanceLogo, attendanceLogo, attendanceLogo];
   // const handleChange = () => {
   //   setExpanded(!expanded);
@@ -48,22 +64,12 @@ export default function ControlledAccordions(props) {
 
   // const [data, setData] = useState(props.course.data);
 
-  // useEffect(() => {
-  //   // let a = [...data["assignments"]];
-  //   // console.log(data["attendance"]);
-  //   // console.log(props.course.data["quiz"]);
-  //   // let b = [...data["quiz"]];
-  //   // let c = [...data["assignments"]];
-
-  //   // console.log(a);
-  // }, []);
-
   return (
     <div className={classes.root}>
       <Accordion
         className={classes.accordion}
-        expanded={expanded}
-        onChange={() => setExpanded(!expanded)}
+        expanded={props.expanded === `panel-${props.index}`}
+        onChange={props.handleChange(`panel-${props.index}`)}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

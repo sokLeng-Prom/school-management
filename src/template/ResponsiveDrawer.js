@@ -21,6 +21,8 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Courses from "../template/Courses";
 import Classroom from "../template/Classroom";
 
+import ScoreSheet from "../template/ScoreSheet";
+
 import { Redirect, useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -88,7 +90,10 @@ function ResponsiveDrawer(props) {
         break;
       case 1:
         return <Classroom />;
-        return;
+        break;
+      case 2:
+        return <ScoreSheet />;
+        break;
     }
   };
 
@@ -97,7 +102,7 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar}></div>
       <Divider />
       <List>
-        {["Courses", "Classroom", "Your Course"].map((text, index) => (
+        {["Courses", "Classroom", "Create Score Sheet"].map((text, index) => (
           <ListItem
             button
             key={text}

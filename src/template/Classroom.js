@@ -9,6 +9,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { BASE_URL } from "../static/const";
 import axios from "axios";
 
+// import ControlledAccordion from "../components/ControlledAccordion_Test";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // borderSpacing: "separ"
@@ -21,6 +23,8 @@ export default function Classroom() {
   const classes = useStyles();
   const [data, setData] = useState([]);
 
+  const [expanded, setExpanded] = useState(false);
+
   const fetch = async () => {
     const resp = await axios.get(
       `${BASE_URL}/users?id=${localStorage.getItem("id")}`
@@ -28,9 +32,18 @@ export default function Classroom() {
     setData(Object.values(resp.data[0].data.class));
   };
 
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   useEffect(() => {
     fetch();
   }, []);
+
+  // const setAccordionExpand = (index) => {
+  //   if (expand === index) return true;
+  //   else return false;
+  // };
 
   // const renderContent = () => {
   //   mockClassroom.map((course) => (
@@ -40,9 +53,15 @@ export default function Classroom() {
   return (
     <div className={classes.root}>
       {/* <ControlledAccordion></ControlledAccordion> */}
-      {data.map((course) => (
-        <ControlledAccordion course={course}></ControlledAccordion>
+      {data.map((course, index) => (
+        <ControlledAccordion
+          expanded={expanded}
+          handleChange={handleChange}
+          index={index}
+          course={course}
+        ></ControlledAccordion>
       ))}
+      {/* <ControlledAccordion></ControlledAccordion> */}
     </div>
   );
 }

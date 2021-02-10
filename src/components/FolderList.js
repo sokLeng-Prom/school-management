@@ -32,10 +32,10 @@ export default function FolderList(props) {
 
   const conditionalRendering__Avatar = () => {
     if (props.type === "ATTENDANCE") {
-      return <Avatar src={tickBox}></Avatar>;
+      return <Avatar className={""} src={tickBox}></Avatar>;
     } else {
       // for quiz and assignments
-      return <Avatar className={classes.orange}>10</Avatar>;
+      return <Avatar className={classes.orange}>{props.score}</Avatar>;
     }
   };
 
