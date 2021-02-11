@@ -21,6 +21,48 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // import { appointments } from "../static/month-appointments";
+const BasicLayout = ({ onFieldChange, appointmentData, ...restProps }) => {
+  const onCustomFieldChange = (nextValue) => {
+    onFieldChange({ visibleToStudent: nextValue });
+  };
+
+  return (
+    <AppointmentForm.BasicLayout
+      appointmentData={appointmentData}
+      onFieldChange={onFieldChange}
+      {...restProps}
+    >
+      <AppointmentForm.Label text="Visible to students" type="title" />
+      <AppointmentForm.BooleanEditor
+        value={appointmentData.customField}
+        onValueChange={onCustomFieldChange}
+        label="Visible to students"
+      />
+    </AppointmentForm.BasicLayout>
+  );
+};
+
+// const BooleanEditors = ({ onFieldChange, appointmentData, ...restProps }) => {
+//   const onCustomFieldChange = (nextValue) => {
+//     onFieldChange({ customField: nextValue });
+//   };
+
+//   return (
+//     <AppointmentForm.BooleanEditor
+//       appointmentData={appointmentData}
+//       onFieldChange={onFieldChange}
+//       {...restProps}
+//     >
+//       <AppointmentForm.Label text="Custom Field" type="title" />
+//       <AppointmentForm.TextEditor
+//         value={appointmentData.customField}
+//         onValueChange={onCustomFieldChange}
+//         placeholder="Custom field"
+//           />
+//           <AppointmentForm.
+//     </AppointmentForm.BooleanEditor>
+//   );
+// };
 
 export default function ClassSchedule() {
   const [data, setData] = useState();
@@ -89,8 +131,10 @@ export default function ClassSchedule() {
         <DateNavigator />
         <TodayButton />
         <Appointments />
-        <AppointmentTooltip showCloseButton showOpenButton />
-        <AppointmentForm />
+        <AppointmentTooltip showCloseButton showOpenButton showDeleteButton />
+        {/* <AppointmentForm.BasicLayoutProps /> */}
+        {/* <AppointmentForm.CommandLayout /> */}
+        <AppointmentForm basicLayoutComponent={BasicLayout} />
       </Scheduler>
     </Paper>
   );
