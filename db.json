@@ -1009,5 +1009,11 @@
       "faculty": "Faculty of Engineering",
       "description": "The purpose of the Capstone Project is for students to apply theoretical and practical knowledge acquired during their undergraduate program to a realistic and possibly real-world project.Prerequisite(s): Senior standing or permission of department"
     }
+  ],
+  "schedule": [
+    {
+      "calendar": [],
+      "id": "8a0b0814-5c7d-11eb-ae93-0242ac130002"
+    }
   ]
 }

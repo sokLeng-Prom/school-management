@@ -18,12 +18,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-import Courses from "../template/Courses";
-import Classroom from "../template/Classroom";
+import Courses from "./Courses";
+import Classroom from "./Classroom";
 
-import ScoreSheet from "../template/ScoreSheet";
+import ScoreSheet from "./ScoreSheet";
 
 import { Redirect, useHistory } from "react-router-dom";
+import ClassSchedule from "../template/ClassSchedule";
 
 const drawerWidth = 240;
 
@@ -87,13 +88,14 @@ function ResponsiveDrawer(props) {
     switch (activeTab) {
       case 0:
         return <Courses />;
-        break;
       case 1:
         return <Classroom />;
-        break;
       case 2:
         return <ScoreSheet />;
-        break;
+      case 3:
+        return <ClassSchedule />;
+      default:
+        return <div>Page Not Found</div>;
     }
   };
 
@@ -102,20 +104,22 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar}></div>
       <Divider />
       <List>
-        {["Courses", "Classroom", "Create Score Sheet"].map((text, index) => (
-          <ListItem
-            button
-            key={text}
-            onClick={() => {
-              setActiveTab(index);
-            }}
-          >
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {["Courses", "Classroom", "Create Score Sheet", "Class Schedule"].map(
+          (text, index) => (
+            <ListItem
+              button
+              key={text}
+              onClick={() => {
+                setActiveTab(index);
+              }}
+            >
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          )
+        )}
       </List>
       <Divider />
       <List>
