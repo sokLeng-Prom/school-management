@@ -25,6 +25,10 @@ import ScoreSheet from "./ScoreSheet";
 
 import { Redirect, useHistory } from "react-router-dom";
 import ClassSchedule from "../template/ClassSchedule";
+import CreateHomework from "./CreateHomework";
+import CreateNotice from "./CreateNotice";
+
+import AttendanceSheet from "./AttendanceSheet";
 
 const drawerWidth = 240;
 
@@ -94,6 +98,12 @@ function ResponsiveDrawer(props) {
         return <ScoreSheet />;
       case 3:
         return <ClassSchedule />;
+      case 4:
+        return <CreateHomework />;
+      case 5:
+        return <CreateNotice />;
+      case 6:
+        return <AttendanceSheet />;
       default:
         return <div>Page Not Found</div>;
     }
@@ -104,22 +114,28 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar}></div>
       <Divider />
       <List>
-        {["Courses", "Classroom", "Create Score Sheet", "Class Schedule"].map(
-          (text, index) => (
-            <ListItem
-              button
-              key={text}
-              onClick={() => {
-                setActiveTab(index);
-              }}
-            >
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          )
-        )}
+        {[
+          "Courses",
+          "Classroom",
+          "Create Score Sheet",
+          "Class Schedule",
+          "Create Assignments",
+          "Create Notice",
+          "Attendance",
+        ].map((text, index) => (
+          <ListItem
+            button
+            key={text}
+            onClick={() => {
+              setActiveTab(index);
+            }}
+          >
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
       </List>
       <Divider />
       <List>
