@@ -8,16 +8,16 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
-export default function DatePicker() {
+export default function DatePicker(props) {
   // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  // const [selectedDate, setSelectedDate] = React.useState(new Date());
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    console.log(
-      `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
-    );
-  };
+  // const handleDateChange = (date) => {
+  //   setSelectedDate(date);
+  //   console.log(
+  //     `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  //   );
+  // };
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -28,8 +28,8 @@ export default function DatePicker() {
         margin="normal"
         id="date-picker-inline"
         label="Date picker inline"
-        value={selectedDate}
-        onChange={handleDateChange}
+        value={props.selectedDate}
+        onChange={props.dateHandler}
         KeyboardButtonProps={{
           "aria-label": "change date",
         }}

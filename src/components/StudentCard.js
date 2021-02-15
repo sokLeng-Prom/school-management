@@ -21,11 +21,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function StudentCard({ name }) {
+export default function StudentCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} id={`student-card-${props.id}`}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -34,19 +34,29 @@ export default function StudentCard({ name }) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {name}
+            {props.name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Button size="small" variant="contained" color="primary">
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              onClick={() => props.updateAttendance(props.id, true)}
+            >
               Present
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button size="small" variant="contained" color="secondary">
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={() => props.updateAttendance(props.id, false)}
+            >
               Absent
             </Button>
           </Grid>
