@@ -60,16 +60,15 @@ export default function CustomizedSelect(props) {
         <InputLabel htmlFor="demo-customized-select-native">Class</InputLabel>
         <NativeSelect
           id="demo-customized-select-native"
-          value={props._class}
-          onChange={props.classHandler}
+          value={props.option}
+          onChange={props.optionHandler}
           input={<BootstrapInput />}
         >
           <option aria-label="None" value="">
             Please select something
           </option>
 
-          {/* {console.log(props.classes[0])} */}
-          {props.classes.map((c, index) => (
+          {props.options.map((c, index) => (
             <option key={index} value={c}>
               {c}
             </option>

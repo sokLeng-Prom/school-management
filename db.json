@@ -245,6 +245,12 @@
                   "index": 5,
                   "score": 65
                 }
+              ],
+              "notice": [
+                {
+                  "type": "announcement",
+                  "description": "testing123"
+                }
               ]
             }
           }
@@ -316,6 +322,12 @@
                 {
                   "index": 5,
                   "score": 65
+                }
+              ],
+              "notice": [
+                {
+                  "type": "announcement",
+                  "description": "testing123"
                 }
               ]
             }

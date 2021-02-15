@@ -38,7 +38,7 @@ function AttendanceSheet() {
     };
     data.class[_class].data.attendance.push(newData);
 
-    const putRes = await axios.patch(`${BASE_URL}/users/${studentID}`, {
+    await axios.patch(`${BASE_URL}/users/${studentID}`, {
       data: data,
     });
 
@@ -81,9 +81,9 @@ function AttendanceSheet() {
   return (
     <div>
       <CustomizedSelect
-        _class={_class}
-        classHandler={classHandler}
-        classes={classes}
+        option={_class}
+        optionHandler={classHandler}
+        options={classes}
       />
       <DatePicker selectedDate={selectedDate} dateHandler={dateHandler} />
       <IconLabelButton
