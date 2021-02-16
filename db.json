@@ -1,6 +1,12 @@
 {
   "users": [
     {
+      "id": "588af202-7002-11eb-9439-0242ac130002",
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
       "id": "8a0b0814-5c7d-11eb-ae93-0242ac130002",
       "username": "j.do",
       "password": "jdo123",

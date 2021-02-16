@@ -1,6 +1,31 @@
-import { useState } from "react";
-import { isNumber } from "../static/const";
+import { useEffect, useState } from "react";
+import { isNumber, BASE_URL } from "../static/const";
+
+import axios from "axios";
+
+import CustomizedSelect from "../components/CustomizedSelect";
+
+import IconLabelButton from "../components/IconLabelButton";
 export default function ScoreSheet() {
+  const [types, setTypes] = useState(["quiz", "assignments"]);
+  const [type, setType] = useState();
+
+  const [_class, setClass] = useState("");
+  const [classes, setClasses] = useState([]);
+
+  const [data, setData] = useState();
+
+  const fetchDB = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/users/${localStorage.getItem("id")}`
+    );
+    let data = res.data.data;
+    setData(data);
+    setClasses(Object.keys(data.class));
+  };
+
+  useEffect(() => fetchDB(), []);
+
   const mockData = [
     "John",
     "Abe",
@@ -15,10 +40,13 @@ export default function ScoreSheet() {
     "Karen",
     "Hora",
   ];
+
+  const [students, setStudents] = useState();
+
   const [scores, setScores] = useState(new Array(mockData.length));
-  const clickHandler = () => {
-    console.log(JSON.stringify(scores));
-  };
+  // const clickHandler = () => {
+  //   console.log(JSON.stringify(scores));
+  // };
   const renderStudentsScoreInput = mockData.map((name, index) => {
     return (
       <label title={name} key={index}>
@@ -45,10 +73,22 @@ export default function ScoreSheet() {
     );
   });
 
+  const clickHandler = () => {
+    if (type && _class) {
+    }
+  };
+
   return (
     <div>
+      <CustomizedSelect options={types} option={type} />
+      <CustomizedSelect options={classes} option={_class} />
+      <IconLabelButton
+        title={"Create attendance sheet"}
+        onClick={clickHandler}
+      />
+
       {renderStudentsScoreInput}
-      <button onClick={clickHandler}>Log Array</button>
+      {/* <button onClick={clickHandler}>Log Array</button> */}
     </div>
   );
 }

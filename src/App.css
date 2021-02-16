@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+#person-first:hover {
+  cursor: pointer;
+  /* border: 1px solid black; */
+  /* fill: black; */
+  stroke: black;
+}
+
+#person-second:hover{
+  cursor: pointer;
+  /* border: 1px solid black; */
+  /* fill: black; */
+  stroke: black;
+}
+
+#person-third:hover {
+  cursor: pointer;
+  /* border: 1px solid black; */
+  /* fill: black; */
+  stroke: black;
+}
+
+#person-fourth:hover {
+  cursor: pointer;
+  /* border: 1px solid black; */
+  /* fill: black; */
+  stroke: black;
+}
