@@ -1,10 +1,53 @@
 import CustomizedSelect from "../components/CustomizedSelect";
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import IconLabelButton from "../components/IconLabelButton";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../static/const";
+import { Box } from "@material-ui/core";
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(5),
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatar: {
+    margin: theme.spacing(3),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  test:{
+    borderColor: 'text.primary',
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(10, 15, 20),
+     
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  section1: {
+    margin: theme.spacing(10, 10),
+  },
+  Spacing:{
+    padding: "30px",
+  }
+}));
+
 export default function CreateNotice() {
+
+  const classStyle = useStyles()
   const types = ["announcement", "quiz", "assignment"];
   const [type, setType] = useState("");
 
@@ -77,23 +120,28 @@ export default function CreateNotice() {
 
   return (
     <div>
-      <CustomizedSelect
-        options={types}
-        option={type}
-        optionHandler={typeHandler}
-      />
-      <CustomizedSelect
-        options={classes}
-        option={_class}
-        optionHandler={classHandler}
-      />
+      <div className={classStyle.paper}>
+        <CustomizedSelect 
+          options={types}
+          option={type}
+          optionHandler={typeHandler}
+        />
+        <CustomizedSelect
+          options={classes}
+          option={_class}
+          optionHandler={classHandler}
+        />
+      </div>
       <TextField
+        className= {classStyle.test}
         id="outlined-multiline-static"
         label="Description"
         multiline
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        rows={7}
+        rows={8}
+      
+        
         // defaultValue="Default Value"
         variant="outlined"
       />
