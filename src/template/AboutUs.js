@@ -193,6 +193,7 @@ export default function AboutUs() {
     }
   };
 
+<<<<<<< HEAD
   const infoPage = () => {
     // console.log(document.getElementById("#person-first"));
     switch (cardIndex) {
@@ -221,6 +222,22 @@ export default function AboutUs() {
     "Relax",
     "Chill",
   ];
+=======
+  // const imgs = [potato, potato, potato, potato];
+  // const titles = [
+  //   "Potato Leader",
+  //   "Potato Teammate",
+  //   "Potato Teammate",
+  //   "Potato Teammate",
+  // ];
+
+  // const descriptions = [
+  //   "Having so much fun in coding this website",
+  //   "Chill",
+  //   "Relax",
+  //   "Chill",
+  // ];
+>>>>>>> 30242ca583688483a52cc52c7856f9e431c1e786
 
   return (
     <div className={classes.container}>

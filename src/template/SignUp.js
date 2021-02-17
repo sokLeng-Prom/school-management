@@ -23,6 +23,10 @@ import Divider from "@material-ui/core/Divider";
 import { useState } from "react";
 import { BASE_URL, isNumber, isEmail } from "../static/const";
 
+import AlertError from "../components/AlertError";
+import AlertSuccess from "../components/AlertSuccess";
+import { set } from "date-fns";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -69,21 +73,35 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp(props) {
   const classes = useStyles();//
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [age, setAge] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
   const [ageInputValidation, setAgeInputValidation] = useState(true);
-  const [emailAddress, setEmailAddress] = useState();
+  const [emailAddress, setEmailAddress] = useState("");
   const [emailInputValidation, setEmailInputValidation] = useState(true);
-  const [nationalIDNumber, setNationalIDNumber] = useState();
-  const [userName, setUserName] = useState();
-  const [passWord, setPassWord] = useState();
-  const [role, setRole] = useState();
-  const [major, setMajor] = useState();
+  const [nationalIDNumber, setNationalIDNumber] = useState("");
+  const [userName, setUserName] = useState("");
+  const [passWord, setPassWord] = useState("");
+  const [role, setRole] = useState("");
+  // const [major, setMajor] = useState();
+
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
+  const resetInputFields = () => {
+    setFirstName("");
+    setLastName("");
+    setAge("");
+    setEmailAddress("");
+    setNationalIDNumber("");
+    setUserName("");
+    setPassWord("");
+    setRole("");
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const data = await props.onSubmit({
+    const resp = await props.onSubmit({
       username: userName,
       password: passWord,
       personal_info: {
@@ -93,9 +111,15 @@ export default function SignUp(props) {
         email: emailAddress,
       },
       role: role,
-      major: major,
-      data: {},
     });
+
+    if (resp.status) {
+      setSuccessMsg(resp.msg);
+      resetInputFields();
+    } else {
+      setErrorMsg(resp.msg);
+      // console.log("Success");
+    }
   };
   // info needed: age, name, email, national_id_num, role, major, username, password
   return (
@@ -108,6 +132,8 @@ export default function SignUp(props) {
         <Typography component="h1" variant="h4">
           Registration Page(Admin Access Only)
         </Typography>
+        <AlertError errorMsg={errorMsg} />
+        <AlertSuccess successMsg={successMsg} />
         <form className={classes.form} onSubmit={submitHandler}>
           <Grid container alignItems="center">
             <Grid item xs>
@@ -128,6 +154,7 @@ export default function SignUp(props) {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 autoFocus
               />
@@ -140,6 +167,7 @@ export default function SignUp(props) {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 autoComplete="lname"
               />
@@ -158,9 +186,10 @@ export default function SignUp(props) {
                 id="Age"
                 label="Age"
                 name="Age"
+                value={age}
                 onChange={(e) => {
                   if (
-                    !isNumber(e.target.value) &&
+                    !isNumber(e.target.value) ||
                     parseInt(e.target.value) > 100
                   ) {
                     setAgeInputValidation(false);
@@ -182,6 +211,7 @@ export default function SignUp(props) {
                 id="email"
                 label="Email Address"
                 name="email"
+                value={emailAddress}
                 autoComplete="email"
                 onChange={(e) => {
                   if (!isEmail(e.target.value)) {
@@ -199,10 +229,11 @@ export default function SignUp(props) {
                 required
                 fullWidth
                 id="national_id_num"
+                value={nationalIDNumber}
                 label="National ID Number"
                 name="National ID Number"
                 onChange={(e) => setNationalIDNumber(e.target.value)}
-                autoComplete="email"
+                autoComplete="national_id_num"
               />
             </Grid>
           </Grid>
@@ -224,6 +255,7 @@ export default function SignUp(props) {
                 fullWidth
                 id="username"
                 label="Username"
+                value={userName}
                 name="username"
                 autoComplete="username"
                 onChange={(e) => setUserName(e.target.value)}
@@ -238,7 +270,8 @@ export default function SignUp(props) {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                value={passWord}
+                autoComplete="password"
                 onChange={(e) => setPassWord(e.target.value)}
               />
             </Grid>
@@ -250,6 +283,7 @@ export default function SignUp(props) {
                 <NativeSelect
                   required
                   // value={state.age}
+                  value={role}
                   onChange={(e) => setRole(e.target.value)}
                   // inputProps={{
                   //   name: "age",
@@ -263,28 +297,21 @@ export default function SignUp(props) {
                 </NativeSelect>
               </FormControl>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <FormControl className={classes.formControl}>
                 <InputLabel shrink htmlFor="age-native-label-placeholder">
                   Major
                 </InputLabel>
                 <NativeSelect
                   required
-                  // value={state.age}
-                  //
-                  // inputProps={{
-                  //   name: "age",
-                  //   id: "age-native-label-placeholder",
-                  // }}
                 >
                   <option value="">None</option>
                   <option value={10}>Computer Science</option>
                   <option value={20}>Business</option>
                   onChange={(e) => setMajor(e.target.value)}
-                  {/* <option value={30}>Admin</option> */}
                 </NativeSelect>
               </FormControl>
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={12}>
               <FormControlLabel

@@ -1,0 +1,6 @@
+Valid Data Schema:
+
+Username:
+- admin (role admin)
+- john doe (role teacher)
+- john kepler (roler student)

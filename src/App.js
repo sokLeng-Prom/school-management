@@ -46,39 +46,6 @@ function App() {
     }
   };
 
-  // retrive uuid from open source api
-  const getUUID = async () => {
-    const res = await axios.get(UUID_API_URL);
-    return res.data;
-  };
-
-  // to be done
-  const fSignUp = async (response) => {
-    // uuid req
-    const uuid = await getUUID();
-    //post data to db.json
-    const param = {
-      id: uuid,
-      username: response.username,
-      password: response.password,
-      personal_info: {
-        name: response.personal_info.name,
-        age: response.personal_info.age,
-        national_id_num: response.personal_info.national_id_num,
-        email: response.personal_info.email,
-      },
-      role: response.role,
-      major: response.major,
-      data: {
-        class: response.data.class,
-        exam: response.data.exam,
-        assignment: response.data.assignment,
-      },
-    };
-
-    const res = await axios.post(`${BASE_URL}/users`, param);
-  };
-
   return (
     <div className="App">
       {/* <ScoreSheet /> */}
@@ -94,13 +61,13 @@ function App() {
             exact
             props={{ onSubmit: fSignIn }}
           />
-          <PublicRoute
+          {/* <PublicRoute
             restricted={false}
             component={SignUp}
             path="/sign-up"
             exact
             props={{ onSubmit: fSignUp }}
-          />
+          /> */}
           <PrivateRoute
             component={ResponsiveDrawer}
             path="/dashboard"
