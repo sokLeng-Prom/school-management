@@ -37,48 +37,82 @@ const useStyles = makeStyles((theme) => ({
     zIndex: -1,
   },
 }));
-var cardIndex;
 var personFirst;
 var personSecond;
 var personThird;
 var personFourth;
-// javascript element
-const injectJS = () => {
-  cardIndex = 0;
-  personFirst = document.querySelector("#person-first");
-  personSecond = document.querySelector("#person-second");
-  personThird = document.querySelector("#person-third");
-  personFourth = document.querySelector("#person-fourth");
-
-  personFirst.addEventListener("click", () => {
-    console.log("personFirst Clicked");
-    cardIndex = 0;
-  });
-
-  personSecond.addEventListener("click", () => {
-    console.log("personSecond Clicked");
-    cardIndex = 1;
-  });
-
-  personThird.addEventListener("click", () => {
-    console.log("personThird Clicked");
-    cardIndex = 2;
-  });
-
-  personFourth.addEventListener("click", () => {
-    console.log("personFourth Clicked");
-    cardIndex = 3;
-  });
-};
+var prev;
+var cur;
 
 export default function AboutUs() {
   const classes = useStyles();
-  const [cardIndexState, setCardIndexState] = useState(cardIndex);
-  // const personFirstInfoCard = () => {
-  //   return <div className={classes.card}>Card 1</div>;
-  // };
+  const [cardIndex, setCardIndex] = useState(0);
+
+  const highlightVectorCharacter = (element) => {
+    element.style.stroke = "black";
+  };
+
   useEffect(() => {
-    // console.log(document.querySelector("person-second"));
+    personFirst = document.querySelector("#person-first");
+    personSecond = document.querySelector("#person-second");
+    personThird = document.querySelector("#person-third");
+    personFourth = document.querySelector("#person-fourth");
+
+    prev = personFirst;
+    cur = personFirst;
+
+    personFirst.addEventListener("click", () => {
+      console.log("personFirst Clicked");
+      // cardIndex = 0;
+      setCardIndex(0);
+      prev.style.stroke = "none";
+      prev = personFirst;
+      cur = personFirst;
+
+      highlightVectorCharacter(personFirst);
+    });
+    // personSecond.addEventListener("mouseover", () => {
+    //   personSecond.setAttribute("data-tip", "testing");
+    // });
+
+    personSecond.addEventListener("click", () => {
+      console.log("personSecond Clicked");
+      // cardIndex = 1;
+      setCardIndex(1);
+
+      prev.style.stroke = "none";
+
+      prev = personSecond;
+      cur = personSecond;
+
+      highlightVectorCharacter(personSecond);
+    });
+
+    personThird.addEventListener("click", () => {
+      console.log("personThird Clicked");
+      // cardIndex = 2;
+      setCardIndex(2);
+
+      prev.style.stroke = "none";
+      prev = personThird;
+      cur = personThird;
+
+      highlightVectorCharacter(personThird);
+    });
+
+    personFourth.addEventListener("click", () => {
+      console.log("personFourth Clicked");
+      setCardIndex(3);
+
+      prev.style.stroke = "none";
+
+      prev = personFourth;
+      cur = personFourth;
+
+      highlightVectorCharacter(personFourth);
+    });
+    // default state
+    highlightVectorCharacter(personFirst);
   }, []);
 
   // const personSecondInfoCard = () => {
@@ -92,15 +126,16 @@ export default function AboutUs() {
   // };
 
   const infoCards = () => {
+    // console.log(document.getElementById("#person-first"));
     switch (cardIndex) {
       case 0:
-        return <div className={classes.card}>Card 1</div>;
+        return <div className={classes.card}>Bunnaroath</div>;
       case 1:
-        return <div className={classes.card}>Card 2</div>;
+        return <div className={classes.card}>Seng Uy</div>;
       case 2:
-        return <div className={classes.card}>Card 3</div>;
+        return <div className={classes.card}>Kuyeang</div>;
       case 3:
-        return <div className={classes.card}>Card 4</div>;
+        return <div className={classes.card}>Suling</div>;
     }
   };
 
@@ -131,8 +166,8 @@ export default function AboutUs() {
         {titles.map((name, index) => (
           <ImgMediaCard
             className={classes.cards}
-            title={name}
-            img={imgs[index]}
+            titl      <ReactTooltip place={"top"} />
+{imgs[index]}
             description={descriptions[index]}
           />
         ))}
