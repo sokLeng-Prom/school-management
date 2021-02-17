@@ -724,6 +724,21 @@
           "AE 335": {}
         }
       }
+    },
+    {
+      "id": "76c06d1a-70fc-11eb-9439-0242ac130002",
+      "username": "use",
+      "password": "use123",
+      "personal_info": {
+        "name": "Uy Seng",
+        "age": "19",
+        "national_id_num": "1234567890",
+        "email": "useng@paragoniu.edu.kh"
+      },
+      "role": "student",
+      "data": {
+        "class": {}
+      }
     }
   ],
   "courses": [

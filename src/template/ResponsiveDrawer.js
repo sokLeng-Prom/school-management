@@ -35,6 +35,10 @@ import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 
 import AdminDashBoard from "./AdminDashBoard";
 import AboutUs from "./AboutUs";
+import SignUp from "./SignUp";
+import axios from "axios";
+import { ArrayIsEmpty, BASE_URL, UUID_API_URL } from "../static/const";
+import AssignCourse from "./AssignCourse";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -85,6 +89,53 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  // retrive uuid from open source api
+  const getUUID = async () => {
+    const res = await axios.get(UUID_API_URL);
+    return res.data;
+  };
+
+  // to be done
+  const fSignUp = async (response) => {
+    // uuid req
+    const uuid = await getUUID();
+
+    //post data to db.json
+    const param = {
+      id: uuid,
+      username: response.username,
+      password: response.password,
+      personal_info: {
+        name: response.personal_info.name,
+        age: response.personal_info.age,
+        national_id_num: response.personal_info.national_id_num,
+        email: response.personal_info.email,
+      },
+      role: response.role,
+      data: {
+        class: {},
+      },
+    };
+    // query if username exist or not
+    const resp = await axios.get(
+      `${BASE_URL}/users?username=${response.username}`
+    );
+
+    // console.log(resp.data);
+    if (ArrayIsEmpty(resp.data)) await axios.post(`${BASE_URL}/users`, param);
+    else return { status: false, msg: "Username Already Exist" };
+
+    return {
+      status: true,
+      msg: "Account Created",
+    };
+
+    // if (resp.data) await axios.post(`${BASE_URL}/users`, param);
+    // else return ;
+    // else
+    // return
+  };
+
   const history = useHistory();
   const logOut = () => {
     if (localStorage.getItem("id")) localStorage.removeItem("id");
@@ -113,6 +164,10 @@ function ResponsiveDrawer(props) {
         return <AdminDashBoard />;
       case 8:
         return <AboutUs />;
+      case 9:
+        return <SignUp onSubmit={fSignUp} />;
+      case 10:
+        return <AssignCourse />;
       default:
         return <div>Page Not Found</div>;
     }
@@ -152,6 +207,8 @@ function ResponsiveDrawer(props) {
           "Attendance",
           "Admin Dashboard",
           "About Us",
+          "Register New User",
+          "Assign Course",
         ].map((text, index) => (
           <ListItem
             button

@@ -25,6 +25,11 @@ const removeSpace = (string) => {
   return string.split(" ").join("");
 };
 
+const ArrayIsEmpty = (array) => {
+  if (array.length > 0) return false;
+  else return true;
+};
+
 // const courses = [
 //   {
 //     courseCode: "ACC 101",
@@ -49,4 +54,5 @@ export {
   stringToBoolean,
   isLoggedIn,
   removeSpace,
+  ArrayIsEmpty,
 };

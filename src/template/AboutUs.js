@@ -139,20 +139,20 @@ export default function AboutUs() {
     }
   };
 
-  const imgs = [potato, potato, potato, potato];
-  const titles = [
-    "Potato Leader",
-    "Potato Teammate",
-    "Potato Teammate",
-    "Potato Teammate",
-  ];
+  // const imgs = [potato, potato, potato, potato];
+  // const titles = [
+  //   "Potato Leader",
+  //   "Potato Teammate",
+  //   "Potato Teammate",
+  //   "Potato Teammate",
+  // ];
 
-  const descriptions = [
-    "Having so much fun in coding this website",
-    "Chill",
-    "Relax",
-    "Chill",
-  ];
+  // const descriptions = [
+  //   "Having so much fun in coding this website",
+  //   "Chill",
+  //   "Relax",
+  //   "Chill",
+  // ];
 
   return (
     <div className={classes.container}>
