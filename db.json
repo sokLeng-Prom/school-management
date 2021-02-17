@@ -780,6 +780,21 @@
           }
         }
       }
+    },
+    {
+      "id": "2e463f98-7146-11eb-9439-0242ac130002",
+      "username": "j.d",
+      "password": "jd123",
+      "personal_info": {
+        "name": "Sokleg Prom",
+        "age": "23",
+        "national_id_num": "100022535",
+        "email": "promsokleng17@gmail.com"
+      },
+      "role": "student",
+      "data": {
+        "class": {}
+      }
     }
   ],
   "courses": [

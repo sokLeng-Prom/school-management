@@ -4,3 +4,18 @@ Username:
 - admin (role admin)
 - john doe (role teacher)
 - john kepler (roler student)
+
+//suling testing
+- register new user 
+    user name already exist (show both error and succeed)
+    age (already under 100 but still show not correct)
+    it always said user name already exist(i don't know how to use :"D)
+- assign course 
+    choose course -> lead to red screen
+-schedule
+    adding title -> lead to error red screen
+    visible to student not working
+-create notic
+    create -> lead to error red screen
+-attendance
+    create -> lead to error red screen
