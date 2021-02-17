@@ -33,7 +33,7 @@
                 "name": "John Kepler"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
           }
         }
@@ -66,8 +66,18 @@
                 "name": "Nicole Bennett"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
+          },
+          "ACC 101": {
+            "students": [],
+            "assignment": [],
+            "quiz": []
+          },
+          "ACC 201": {
+            "students": [],
+            "assignment": [],
+            "quiz": []
           }
         }
       }
@@ -99,7 +109,7 @@
                 "name": "Nicole Sanders"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
           }
         }
@@ -132,7 +142,7 @@
                 "name": "Kathie Matthews"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
           },
           "AE 335": {
@@ -146,7 +156,7 @@
                 "name": "Gemma Bell"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
           }
         }
@@ -179,7 +189,7 @@
                 "name": "Gemma Bell"
               }
             ],
-            "exam": [],
+            "quiz": [],
             "assignment": []
           }
         }
@@ -208,7 +218,7 @@
                   "date": "15/2/2021"
                 }
               ],
-              "assignments": [
+              "assignment": [
                 {
                   "index": 1,
                   "score": 76
@@ -286,7 +296,7 @@
                   "date": "15/2/2021"
                 }
               ],
-              "assignments": [
+              "assignment": [
                 {
                   "index": 1,
                   "score": 76
@@ -416,7 +426,7 @@
                   "date": "26/02/2021"
                 }
               ],
-              "assignments": [
+              "assignment": [
                 {
                   "index": 1,
                   "score": 76
@@ -540,7 +550,7 @@
                   "date": "26/02/2021"
                 }
               ],
-              "assignments": [
+              "assignment": [
                 {
                   "index": 1,
                   "score": 76
@@ -737,7 +747,38 @@
       },
       "role": "student",
       "data": {
-        "class": {}
+        "class": {
+          "ACC 101": {
+            "courseCode": "ACC 101",
+            "courseName": "Principles of Accounting",
+            "data": {
+              "attendance": [],
+              "assignment": [],
+              "quiz": [],
+              "notice": []
+            }
+          },
+          "ACC 201": {
+            "courseCode": "ACC 201",
+            "courseName": "Principles of Accounting I",
+            "data": {
+              "attendance": [],
+              "assignment": [],
+              "quiz": [],
+              "notice": []
+            }
+          },
+          "ACC 202": {
+            "courseCode": "ACC 202",
+            "courseName": "Principles of Accounting II",
+            "data": {
+              "attendance": [],
+              "assignment": [],
+              "quiz": [],
+              "notice": []
+            }
+          }
+        }
       }
     }
   ],
