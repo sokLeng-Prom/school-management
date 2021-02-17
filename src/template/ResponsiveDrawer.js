@@ -32,18 +32,15 @@ import AttendanceSheet from "./AttendanceSheet";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AdminDashBoard from "./AdminDashBoard";
 import AboutUs from "./AboutUs";
-<<<<<<< HEAD
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import InfoIcon from '@material-ui/icons/Info';
-=======
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import InfoIcon from "@material-ui/icons/Info";
 import SignUp from "./SignUp";
 import axios from "axios";
 import { ArrayIsEmpty, BASE_URL, UUID_API_URL } from "../static/const";
 import AssignCourse from "./AssignCourse";
->>>>>>> 30242ca583688483a52cc52c7856f9e431c1e786
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -195,9 +192,9 @@ function ResponsiveDrawer(props) {
       case 6:
         return <AssignmentTurnedInIcon />;
       case 7:
-        return <DashboardIcon/>;
+        return <DashboardIcon />;
       case 8:
-        return <InfoIcon/>
+        return <InfoIcon />;
     }
   };
 
@@ -233,10 +230,10 @@ function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <List>
-        {[ "Logout"].map((text, index) => (
+        {["Logout"].map((text, index) => (
           <ListItem button key={text} onClick={() => logOut()}>
             <ListItemIcon>
-              <ExitToAppIcon/>
+              <ExitToAppIcon />
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>

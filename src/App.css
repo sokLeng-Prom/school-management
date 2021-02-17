@@ -39,6 +39,11 @@ h1{
   }
 }
 
+
+html{
+  scroll-behavior: smooth;
+}
+
 #person-first:hover {
   cursor: pointer;
   /* border: 1px solid black; */
