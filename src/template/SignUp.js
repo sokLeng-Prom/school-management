@@ -35,7 +35,7 @@ function Copyright() {
     </Typography>
   );
 }
-
+//
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp(props) {
-  const classes = useStyles();
+  const classes = useStyles();//
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -102,7 +102,7 @@ export default function SignUp(props) {
     <Container component="main" maxWidth="sm">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar}>//
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h4">

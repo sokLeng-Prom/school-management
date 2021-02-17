@@ -32,9 +32,11 @@ import AttendanceSheet from "./AttendanceSheet";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AdminDashBoard from "./AdminDashBoard";
 import AboutUs from "./AboutUs";
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import InfoIcon from '@material-ui/icons/Info';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -134,6 +136,10 @@ function ResponsiveDrawer(props) {
         return <NotificationsActiveIcon />;
       case 6:
         return <AssignmentTurnedInIcon />;
+      case 7:
+        return <DashboardIcon/>;
+      case 8:
+        return <InfoIcon/>
     }
   };
 
@@ -167,10 +173,10 @@ function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Logout"].map((text, index) => (
+        {[ "Logout"].map((text, index) => (
           <ListItem button key={text} onClick={() => logOut()}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <ExitToAppIcon/>
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
