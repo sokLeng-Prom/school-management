@@ -18,27 +18,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CheckboxList() {
+export default function CheckboxList(props) {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([0]);
+  // const [checked, setChecked] = React.useState([]);
 
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  // const handleToggle = (value) => () => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
 
-    setChecked(newChecked);
-  };
+  //   setChecked(newChecked);
+  // };
 
   return (
     <Paper style={{ maxHeight: 400, overflow: "auto" }}>
       <List className={classes.root}>
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((value) => {
+        {props.list.map((value) => {
           const labelId = `checkbox-list-label-${value}`;
 
           return (
@@ -47,18 +47,18 @@ export default function CheckboxList() {
               role={undefined}
               dense
               button
-              onClick={handleToggle(value)}
+              onClick={props.handleToggle(value)}
             >
               <ListItemIcon>
                 <Checkbox
                   edge="start"
-                  checked={checked.indexOf(value) !== -1}
+                  checked={props.checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{ "aria-labelledby": labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText id={labelId} primary={value} />
               {/* <ListItemSecondaryAction>
                 <IconButton edge="end" aria-label="comments">
                   <CommentIcon />
