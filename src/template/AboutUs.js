@@ -105,10 +105,10 @@ var personFourth;
 var prev;
 var cur;
 
-var pageOne = document.querySelector("#pageOne");
-var pageTwo = document.querySelector("#pageTwo");
-var pageThree = document.querySelector("#pageThree");
-var pageFour = document.querySelector("#pageFour");
+var pageOne;
+var pageTwo;
+var pageThree;
+var pageFour;
 
 export default function AboutUs() {
   const classes = useStyles();
@@ -123,6 +123,10 @@ export default function AboutUs() {
     personSecond = document.querySelector("#person-second");
     personThird = document.querySelector("#person-third");
     personFourth = document.querySelector("#person-fourth");
+    pageOne = document.querySelector("#pageOne");
+    pageTwo = document.querySelector("#pageTwo");
+    pageThree = document.querySelector("#pageThree");
+    pageFour = document.querySelector("#pageFour");
 
     prev = personFirst;
     cur = personFirst;
