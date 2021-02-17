@@ -51,6 +51,7 @@ html{
   stroke: black !important;
 }
 
+
 #person-second:hover{
   cursor: pointer;
   /* border: 1px solid black; */
@@ -58,6 +59,10 @@ html{
   stroke: black !important;
 }
 
+#hoverCard:hover{
+  cursor: pointer;
+  stroke: black  !important;
+}
 #person-third:hover {
   cursor: pointer;
   /* border: 1px solid black; */

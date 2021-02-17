@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import bunnaroth from "../static/img/bunnaroth.jpg";
 import suling from "../static/img/suling.jpg";
 import potato from "../static/img/potato.jpg";
-import Kuyeang from "../static/img/kuyeang.jpg";
+import kuyeang from "../static/img/kuyeang.jpg";
+import Tooltip from '@material-ui/core/Tooltip';
 const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
@@ -26,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
   card: {
     height: "100vh",
     // width: "100vw",
-    backgroundColor: "blue",
     color: "#fff",
     display: "flex",
     flexDirection: "column",
@@ -53,18 +53,24 @@ const useStyles = makeStyles((theme) => ({
   },
   Img: {
     width: "25rem",
+    
   },
   //slogan
   aboutUsTitle: {
     width: "100vh",
     height: "100vh",
+    paddingTop: "12rem",
+    paddingRight: "7rem",
+    // marginRight: "7rem",
+    // position: "fixed",
+  },
+  wholeCard: {
+    width: "100vh",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
-    textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: "5rem",
-    // position: "fixed",
   },
   userPage: {
     width: "10vh",
@@ -77,25 +83,33 @@ const useStyles = makeStyles((theme) => ({
   userDes: {
     color: "red",
   },
+  headerBuilding: {
+    paddingBottom: "2rem",
+    color: "Black",
+  },
   // Uy Seng's code
   coverPage: {
     height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
   infoPage1: {
     height: "100vh",
-    backgroundColor: "blue",
+    // backgroundColor: "silver"
   },
   infoPage2: {
     height: "100vh",
-    backgroundColor: "yellow",
+    // backgroundColor: "yellow",
   },
   infoPage3: {
     height: "100vh",
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
   },
   infoPage4: {
     height: "100vh",
-    backgroundColor: "black",
+    // backgroundColor: "gray",
   },
 }));
 var personFirst;
@@ -204,17 +218,7 @@ export default function AboutUs() {
     // console.log(document.getElementById("#person-first"));
     switch (cardIndex) {
       case 0:
-        return (
-          <div className={classes.card}>
-            <div className={classes.aboutUsTitle}>
-              <img className={classes.Img} src={potato}></img>
-              <div className={classes.text}>
-                <p>Uy Seng</p>
-                <h2>Leader of potato</h2>
-              </div>
-            </div>
-          </div>
-        );
+        return <div className={classes.card}>Bunnaroth</div>;
       case 1:
         return <div className={classes.card}>Bunnaroth</div>;
       case 2:
@@ -275,7 +279,6 @@ export default function AboutUs() {
     //     <AboutUsImg className={classes.fourPeople} height={"70vh"} />
     //     <div>
     //       <div className={classes.aboutUsTitle}>
-    //         <h1>" I am not lazy, I am on energy saving mode "</h1>
     //       </div>
     //       {infoCard()}
 
@@ -302,17 +305,83 @@ export default function AboutUs() {
     //       </div>
     //     </div>
     //   </div>
-
+ //   // <div className={classes.card}>
+        //   //   <div className={classes.aboutUsTitle}>
+        //   //     <img className={classes.Img} src={potato}></img>
+        //   //     <div className={classes.text}>
+        //   //       <p>Uy Seng</p>
+        //   //       <h2>Leader of potato</h2>
+        //   //     </div>
+        //   //   </div>
+        //   // </div>
     // Uy Seng's code
 
     <div className={classes.container}>
       <div className={classes.coverPage}>
+        <div className={classes.aboutUsTitle}>
+          <h1>" I am not lazy, I am on energy saving mode "</h1>
+        </div>
         <AboutUsImg className={classes.fourPeople} height={"70vh"} />
       </div>
-      <div className={classes.infoPage1} id="pageOne"></div>
-      <div className={classes.infoPage2} id="pageTwo"></div>
-      <div className={classes.infoPage3} id="pageThree"></div>
-      <div className={classes.infoPage4} id="pageFour"></div>
+      <div className={classes.infoPage1} id="pageOne"> 
+       <div className={classes.card}>
+          
+            <div className={classes.wholeCard} id = "hoverCard">
+            <h2 className = {classes.headerBuilding}>“Remember that there is no code faster than no code.” </h2>
+              <div>
+              <Tooltip title = "Uy Seng">
+                <img className={classes.Img} src={potato}></img>
+              </Tooltip>
+              <div className={classes.text}>
+                <p>Uy Seng</p>
+                <h2>Leader of potato</h2>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div className={classes.infoPage2} id="pageTwo">
+        <div className={classes.card}>
+            <div className={classes.wholeCard}>
+            <h2 className = {classes.headerBuilding}>“When I wrote this code, only God and I understood what I did. Now only God knows.”</h2>
+              <Tooltip title= "Bunnaroth">
+                < img className={classes.Img} src={bunnaroth}></img>
+              </Tooltip>
+              <div className={classes.text}>
+                <p>Bunnaroth</p>
+                <h2>Second boss of potato</h2>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div className={classes.infoPage3} id="pageThree">
+        <div className={classes.card}>
+            <div className={classes.wholeCard}>
+            <h2 className = {classes.headerBuilding}>“A son asked his father (a programmer) why the sun rises in the east, and sets in the west. His response? It works, don’t touch!”</h2>
+              <Tooltip title= "kuyeang">
+                <img className={classes.Img} src={kuyeang}></img>
+              </Tooltip>  
+              <div className={classes.text}>
+                <p>Kuyeang</p>
+                <h2>Third boss of potato</h2>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div className={classes.infoPage4} id="pageFour">
+        <div className={classes.card}>
+            <div className={classes.wholeCard}>
+            <h2 className = {classes.headerBuilding}>“If debugging is the process of removing bugs, then programming must be the process of putting them in.”</h2>
+            <Tooltip title= "Sokleng">
+              <img className={classes.Img} src={suling}></img>
+            </Tooltip>
+              <div className={classes.text}>
+                <p>Sokleng</p>
+                <h2>Last boss of potato</h2>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
   );
 }
