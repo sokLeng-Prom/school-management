@@ -413,8 +413,8 @@ function ResponsiveDrawer(props) {
             </Hidden>
           </nav>
         </div>
-        {/* <div className={classes.whiteBackground}>
-          <CssBaseline /> */}
+        {/* <div className={classes.whiteBackground}> */}
+        {/* <CssBaseline /> */}
 
         <main className={classes.content}>
           {/* <Courses /> */}
