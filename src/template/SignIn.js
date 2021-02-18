@@ -65,8 +65,13 @@ export default function SignIn(props) {
     } else {
       console.log("SIGN-IN SUCCESS");
       // let [user] = data.filter((user) => user.password === password);
-      if (rememberMe) localStorage.setItem("id", data.id);
-      else sessionStorage.setItem("id", data.id);
+      if (rememberMe) {
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("role", data.role);
+      } else {
+        sessionStorage.setItem("id", data.id);
+        sessionStorage.setItem("role", data.role);
+      }
       // redirect user to other route based on their role
       history.push("/dashboard");
     }
