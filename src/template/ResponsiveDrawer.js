@@ -199,15 +199,17 @@ function ResponsiveDrawer(props) {
         "Create Assignments",
         "Create Notice",
         "Attendance",
+        "About Us",
       ];
     } else if (role === "student") {
-      return ["Courses", "Classroom", "Class Schedule"];
+      return ["Courses", "Classroom", "Class Schedule", "About Us"];
     } else if (role === "admin") {
       return [
         "Admin Dashboard",
         "Courses",
         "Register New User",
         "Assign Course",
+        "About Us",
       ];
     }
   };
@@ -226,6 +228,8 @@ function ResponsiveDrawer(props) {
         return <CreateNotice />;
       case 5:
         return <AttendanceSheet />;
+      case 6:
+        return <AboutUs />;
     }
   };
 
@@ -237,6 +241,8 @@ function ResponsiveDrawer(props) {
         return <Classroom />;
       case 2:
         return <ClassSchedule />;
+      case 3:
+        return <AboutUs />;
     }
   };
 
@@ -250,6 +256,8 @@ function ResponsiveDrawer(props) {
         return <SignUp onSubmit={fSignUp} />;
       case 3:
         return <AssignCourse />;
+      case 4:
+        return <AboutUs />;
     }
   };
 
@@ -405,14 +413,14 @@ function ResponsiveDrawer(props) {
             </Hidden>
           </nav>
         </div>
-        <div className={classes.whiteBackground}>
-          <CssBaseline />
+        {/* <div className={classes.whiteBackground}>
+          <CssBaseline /> */}
 
-          <main className={classes.content}>
-            {/* <Courses /> */}
-            {renderContent()}
-          </main>
-        </div>
+        <main className={classes.content}>
+          {/* <Courses /> */}
+          {renderContent()}
+        </main>
+        {/* </div> */}
       </div>
 
       {/* <AppBar position="fixed" className={classes.appBar}>

@@ -12,11 +12,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
     scrollbarWidth: 0,
-    // overflow: "hidden",
   },
-  // fourPeople: {
-  //   position: "sticky",
-  // },
   cardsWrapper: {
     display: "flex",
     position: "absolute",

@@ -788,6 +788,21 @@
       "data": {
         "class": {}
       }
+    },
+    {
+      "id": "14193718-7201-11eb-9439-0242ac130002",
+      "username": "menghang",
+      "password": "123",
+      "personal_info": {
+        "name": "Aoi Tsukasa",
+        "age": "31",
+        "national_id_num": "1234567890-",
+        "email": "aoitsukasa@paragoniu.edu.kh"
+      },
+      "role": "teacher",
+      "data": {
+        "class": {}
+      }
     }
   ],
   "courses": [
