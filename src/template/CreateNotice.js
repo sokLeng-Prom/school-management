@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   test: {
-    borderColor: "text.primary",
+    borderColor: "blue",
     width: "50%",
   },
   form: {
@@ -187,7 +187,7 @@ export default function CreateNotice() {
             />
             {/* seng uy make this under the description */}
             <IconLabelButton
-              className={classStyle.Spacing}
+              className={classStyle.avatar}
               title={"Create Notice"}
               onClick={clickHandler}
             />

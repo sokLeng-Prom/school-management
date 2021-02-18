@@ -36,4 +36,15 @@ delete visible in schedule
 sokleng: attendance, notice,classroom
 full screen dialog UI(color is not good)
 icon for media control part with dialogue box
+admin dashboard
+after assigning course for teacher should show sth as succeed
 additional feature to be added
+
+//make create notcie down a bit
+
+//1902
+the schedule cannot save
+to clarify role only works with 3 acc above
+sign as other role is ok
+
+
