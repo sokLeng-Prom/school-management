@@ -8,8 +8,8 @@ import { BASE_URL } from "../static/const";
 import { Box } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(5),
+    // marginTop: theme.spacing(8),
+    // marginBottom: theme.spacing(5),
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -20,14 +20,15 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    paddingBottom: "3rem",
+    // justifyContent: "center",
     alignItems: "center",
   },
   grayBackground: {
     background: "#ebecf0",
     margin: "1rem",
-    height: "90%",
-    width: "80%",
+    // height: "90%",
+    width: "50%",
   },
   avatar: {
     margin: theme.spacing(3),
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(10, 10),
   },
   Spacing: {
-    padding: "30px",
+    margin: "20px",
   },
   noteSubmission: {
     display: "flex",
@@ -175,7 +176,8 @@ export default function CreateNotice() {
             <TextField
               className={classStyle.test}
               id="outlined-multiline-static"
-              label="Description"
+              label="Description..."
+              
               multiline
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -185,7 +187,7 @@ export default function CreateNotice() {
             />
             {/* seng uy make this under the description */}
             <IconLabelButton
-              className={classStyle.noteSubmitBtn}
+              className={classStyle.Spacing}
               title={"Create Notice"}
               onClick={clickHandler}
             />
