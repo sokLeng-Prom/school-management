@@ -7,14 +7,16 @@ import suling from "../static/img/suling.jpg";
 import potato from "../static/img/potato.jpg";
 import kuyeang from "../static/img/kuyeang.jpg";
 import Tooltip from '@material-ui/core/Tooltip';
+import '../static/css/aboutUs.css'
 const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
+    scrollbarWidth: 0
     // overflow: "hidden",
   },
-  fourPeople: {
-    position: "sticky",
-  },
+  // fourPeople: {
+  //   position: "sticky",
+  // },
   cardsWrapper: {
     display: "flex",
     position: "absolute",
@@ -44,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   coverImg: {
     height: "20rem",
-    position: "absolute",
+    position: "sticky",
 
     height: "70vh",
     right: 0,
@@ -316,7 +318,7 @@ export default function AboutUs() {
         //   // </div>
     // Uy Seng's code
 
-    <div className={classes.container}>
+    <div id="container" className={classes.container}>
       <div className={classes.coverPage}>
         <div className={classes.aboutUsTitle}>
           <h1>" I am not lazy, I am on energy saving mode "</h1>
