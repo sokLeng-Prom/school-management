@@ -238,6 +238,10 @@
                 {
                   "index": 5,
                   "score": 65
+                },
+                {
+                  "index": 6,
+                  "score": 12
                 }
               ],
               "quiz": [
@@ -260,6 +264,14 @@
                 {
                   "index": 5,
                   "score": 65
+                },
+                {
+                  "index": 6,
+                  "score": 96
+                },
+                {
+                  "index": 7,
+                  "score": 45
                 }
               ],
               "notice": [
@@ -316,6 +328,10 @@
                 {
                   "index": 5,
                   "score": 65
+                },
+                {
+                  "index": 6,
+                  "score": 34
                 }
               ],
               "quiz": [
@@ -338,6 +354,14 @@
                 {
                   "index": 5,
                   "score": 65
+                },
+                {
+                  "index": 6,
+                  "score": 86
+                },
+                {
+                  "index": 7,
+                  "score": 45
                 }
               ],
               "notice": [
@@ -736,9 +760,9 @@
       }
     },
     {
-      "id": "76c06d1a-70fc-11eb-9439-0242ac130002",
-      "username": "use",
-      "password": "use123",
+      "id": "bcaf9112-71d7-11eb-9439-0242ac130002",
+      "username": "useng",
+      "password": "useng123",
       "personal_info": {
         "name": "Uy Seng",
         "age": "19",
@@ -747,48 +771,17 @@
       },
       "role": "student",
       "data": {
-        "class": {
-          "ACC 101": {
-            "courseCode": "ACC 101",
-            "courseName": "Principles of Accounting",
-            "data": {
-              "attendance": [],
-              "assignment": [],
-              "quiz": [],
-              "notice": []
-            }
-          },
-          "ACC 201": {
-            "courseCode": "ACC 201",
-            "courseName": "Principles of Accounting I",
-            "data": {
-              "attendance": [],
-              "assignment": [],
-              "quiz": [],
-              "notice": []
-            }
-          },
-          "ACC 202": {
-            "courseCode": "ACC 202",
-            "courseName": "Principles of Accounting II",
-            "data": {
-              "attendance": [],
-              "assignment": [],
-              "quiz": [],
-              "notice": []
-            }
-          }
-        }
+        "class": {}
       }
     },
     {
-      "id": "2e463f98-7146-11eb-9439-0242ac130002",
-      "username": "j.d",
-      "password": "jd123",
+      "id": "8fe3809a-71f4-11eb-9439-0242ac130002",
+      "username": "use",
+      "password": "use123",
       "personal_info": {
-        "name": "Sokleg Prom",
-        "age": "23",
-        "national_id_num": "100022535",
+        "name": "afdasf afdsa",
+        "age": "20",
+        "national_id_num": "32341",
         "email": "promsokleng17@gmail.com"
       },
       "role": "student",

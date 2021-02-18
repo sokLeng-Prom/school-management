@@ -57,7 +57,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ControlledAccordions(props) {
   const classes = useStyles();
   // const [expanded, setExpanded] = React.useState(false);
-  const cardMedia = [attendanceLogo, attendanceLogo, attendanceLogo];
+  const cardMedia = [
+    attendanceLogo,
+    attendanceLogo,
+    attendanceLogo,
+    attendanceLogo,
+  ];
   // const handleChange = () => {
   //   setExpanded(!expanded);
   // };

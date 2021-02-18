@@ -44,6 +44,13 @@ html{
   scroll-behavior: smooth;
 }
 
+#bird:hover {
+  cursor: pointer;
+  /* border: 1px solid black; */
+  /* fill: black; */
+  stroke: black !important;
+}
+
 #person-first:hover {
   cursor: pointer;
   /* border: 1px solid black; */
