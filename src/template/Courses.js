@@ -47,6 +47,7 @@ export default function Courses() {
     container: {
       display: "flex",
       flex: "1 1 auto",
+      backgroundColor: "white",
     },
     content: {
       width: "100%",
@@ -55,9 +56,11 @@ export default function Courses() {
     toolbar: {
       ...theme.mixins.toolbar,
       display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
-    table:{
-      backgroundColor: "#47A3F5"
+    table: {
+      backgroundColor: "#47A3F5",
     },
   }));
 
@@ -74,7 +77,10 @@ export default function Courses() {
             searchByHandler={searchByHandler}
           ></Selector>
         </div>
-        <EnhancedTable className={classes.table} rows={filteredRows}></EnhancedTable>
+        <EnhancedTable
+          className={classes.table}
+          rows={filteredRows}
+        ></EnhancedTable>
       </div>
     </div>
   );

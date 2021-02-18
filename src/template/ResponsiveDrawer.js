@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     backgroundColor: "#e6e7e7",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -107,6 +108,7 @@ const useStyles = makeStyles((theme) => ({
   rowDrawer: {
     display: "flex",
     flexDirection: "row",
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -115,6 +117,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     flexFlow: "column",
     // flexWrap: "wrap",
+    backgroundColor: "white",
+    paddingTop: "3rem",
     flexGrow: 1,
     // padding: theme.spacing(3),
   },
@@ -196,7 +200,7 @@ function ResponsiveDrawer(props) {
         "Courses",
         "Create Score Sheet",
         "Class Schedule",
-        "Create Assignments",
+        // "Create Assignments",
         "Create Notice",
         "Attendance",
         "About Us",
@@ -223,12 +227,10 @@ function ResponsiveDrawer(props) {
       case 2:
         return <ClassSchedule />;
       case 3:
-        return <CreateHomework />;
-      case 4:
         return <CreateNotice />;
-      case 5:
+      case 4:
         return <AttendanceSheet />;
-      case 6:
+      case 5:
         return <AboutUs />;
     }
   };

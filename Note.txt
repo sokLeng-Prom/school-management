@@ -31,3 +31,9 @@ fourth: #e6e6e8(lavender ) for text
 black
 white
 
+forgot password , don't have acc
+delete visible in schedule
+sokleng: attendance, notice,classroom
+full screen dialog UI(color is not good)
+icon for media control part with dialogue box
+additional feature to be added

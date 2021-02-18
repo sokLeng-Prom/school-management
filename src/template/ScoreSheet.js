@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
   },
   grayBackground: {
@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     background: "#ebecf0",
     margin: "1rem",
-    height: "90%",
-    width: "80%",
+    // height: "90%",
+    padding: "1rem",
+    // width: "80%",
   },
   avatar: {
     margin: theme.spacing(3),
@@ -178,16 +179,18 @@ export default function ScoreSheet() {
       <div className={classStyle.whiteBackground}>
         <h2>Score Sheet</h2>
         <div className={classStyle.grayBackground}>
-          <CustomizedSelect
-            options={types}
-            option={type}
-            optionHandler={typeHandler}
-          />
-          <CustomizedSelect
-            options={classes}
-            option={_class}
-            optionHandler={classHandler}
-          />
+          <div>
+            <CustomizedSelect
+              options={types}
+              option={type}
+              optionHandler={typeHandler}
+            />
+            <CustomizedSelect
+              options={classes}
+              option={_class}
+              optionHandler={classHandler}
+            />
+          </div>
           <IconLabelButton
             title={"Create score sheet"}
             onClick={clickHandler}
