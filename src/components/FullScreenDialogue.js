@@ -52,7 +52,7 @@ export default function FullScreenDialog(props) {
           date={item.date}
         ></FolderList>
       );
-    } else if (props.title === "ASSIGNMENTS") {
+    } else if (props.title === "ASSIGNMENT") {
       return (
         <FolderList
           type={props.title}
@@ -66,6 +66,14 @@ export default function FullScreenDialog(props) {
           type={props.title}
           title={`Quiz ${item.index}`}
           score={item.score}
+        ></FolderList>
+      );
+    } else if (props.title === "NOTICE") {
+      // return "Hello";
+      return (
+        <FolderList
+          title={`${item.description}`}
+          // score={item.score}
         ></FolderList>
       );
     }
