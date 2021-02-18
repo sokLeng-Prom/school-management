@@ -19,3 +19,15 @@ Username:
     create -> lead to error red screen
 -attendance
     create -> lead to error red screen
+
+//responsiveDrawer make that one to the left a bit
+
+color theme: 
+first: #3b4059 (gray)
+
+second : #37cab6 (light green)
+third: #359cc6(steel blue)
+fourth: #e6e6e8(lavender ) for text 
+black
+white
+

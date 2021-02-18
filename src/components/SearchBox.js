@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
+  icon:{
+    color: "#3b4059",
+  }
 }));
 
 export default function SearchBox(props) {
@@ -44,7 +47,7 @@ export default function SearchBox(props) {
         className={classes.iconButton}
         aria-label="search"
       >
-        <SearchIcon />
+        <SearchIcon className= {classes.icon}/>
       </IconButton>
       <InputBase
         className={classes.input}

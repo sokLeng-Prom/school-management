@@ -48,12 +48,23 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "#e6e7e7",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  icon: {
+    color: "white",
+    fontSize: "1rem",
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0,
+      background: "#7e8e91"
     },
+    backgroundColor: "red",
   },
   appBar: {
     [theme.breakpoints.up("sm")]: {
@@ -61,6 +72,23 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth,
     },
   },
+  whiteBackground: {
+    background: "white",
+    height: "96vh",
+    width: "85vw",
+    margin: "1vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  // grayBackground: {
+  //   background: "#ebecf0",
+  //   margin: "1rem",
+  //   height: "90%",
+  //   width: "80%"
+
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
@@ -71,6 +99,15 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#5a707e",
+    color: "white",
+    fontSize: "1rem"
+  },
+  rowDrawer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   content: {
     display: "flex",
@@ -183,27 +220,27 @@ function ResponsiveDrawer(props) {
   const renderIcon = (index) => {
     switch (index) {
       case 0:
-        return <ClassIcon />;
+        return <ClassIcon className = {classes.icon}/>;
       case 1:
-        return <PeopleIcon />;
+        return <PeopleIcon className = {classes.icon}/>;
       case 2:
-        return <EqualizerIcon />;
+        return <EqualizerIcon className = {classes.icon}/>;
       case 3:
-        return <EventIcon />;
+        return <EventIcon className = {classes.icon}/>;
       case 4:
-        return <HomeWorkIcon />;
+        return <HomeWorkIcon className = {classes.icon}/>;
       case 5:
-        return <NotificationsActiveIcon />;
+        return <NotificationsActiveIcon className = {classes.icon}/>;
       case 6:
-        return <AssignmentTurnedInIcon />;
+        return <AssignmentTurnedInIcon className = {classes.icon}/>;
       case 7:
-        return <DashboardIcon />;
+        return <DashboardIcon className = {classes.icon}/>;
       case 8:
-        return <InfoIcon />;
+        return <InfoIcon className = {classes.icon}/>;
       case 9:
-        return <AccessibilityNewIcon/>;
+        return <AccessibilityNewIcon className = {classes.icon}/>;
       case 10:
-        return <AssignmentLateIcon/>
+        return <AssignmentLateIcon className = {classes.icon}/>
     }
   };
 
@@ -242,7 +279,7 @@ function ResponsiveDrawer(props) {
         {["Logout"].map((text, index) => (
           <ListItem button key={text} onClick={() => logOut()}>
             <ListItemIcon>
-              <ExitToAppIcon />
+              <ExitToAppIcon className = {classes.icon}/>
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -256,7 +293,51 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <div className = {classes.rowDrawer}>
+        <div>
+        <nav className={classes.drawer} aria-label="mailbox folders">
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Hidden smUp implementation="css">
+            <Drawer
+              container={container}
+              variant="temporary"
+              anchor={theme.direction === "rtl" ? "right" : "left"}
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+          <Hidden xsDown implementation="css">
+            <Drawer
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              variant="permanent"
+              open
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+        </nav>
+      </div>
+        <div  className= {classes.whiteBackground}>
+          <CssBaseline />
+            
+          <main className={classes.content}>
+          {/* <Courses /> */}
+          {renderContent()}
+        </main>
+        </div>
+      </div>
+    
+      
       {/* <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
@@ -273,41 +354,7 @@ function ResponsiveDrawer(props) {
           </Typography>
         </Toolbar>
       </AppBar> */}
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        {/* <Courses /> */}
-        {renderContent()}
-      </main>
+      
     </div>
   );
 }
