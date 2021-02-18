@@ -6,6 +6,10 @@ import bunnaroth from "../static/img/bunnaroth.jpg";
 import suling from "../static/img/suling.jpg";
 import potato from "../static/img/potato.jpg";
 import kuyeang from "../static/img/kuyeang.jpg";
+import bg5 from "../static/img/bg5.jpg";
+import bg2 from "../static/img/bg2.jpg";
+import bg3 from "../static/img/bg3.jpg";
+import bg4 from "../static/img/bg4.jpg";
 import Tooltip from "@material-ui/core/Tooltip";
 import "../static/css/aboutUs.css";
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerBuilding: {
     paddingBottom: "2rem",
-    color: "Black",
+    color: "white",
   },
   // Uy Seng's code
   coverPage: {
@@ -95,18 +99,24 @@ const useStyles = makeStyles((theme) => ({
   },
   infoPage1: {
     height: "100vh",
+    backgroundImage: `url(${bg2})`,
+    color: "white"
     // backgroundColor: "silver"
   },
   infoPage2: {
     height: "100vh",
+    backgroundImage: `url(${bg3})`
     // backgroundColor: "yellow",
   },
   infoPage3: {
     height: "100vh",
+    color: "white",
+    backgroundImage: `url(${bg4})`
     // backgroundColor: "pink",
   },
   infoPage4: {
     height: "100vh",
+    backgroundImage: `url(${bg5})`
     // backgroundColor: "gray",
   },
 }));
