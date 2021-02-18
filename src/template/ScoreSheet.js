@@ -6,7 +6,12 @@ import axios from "axios";
 import CustomizedSelect from "../components/CustomizedSelect";
 
 import IconLabelButton from "../components/IconLabelButton";
+import { Button, Icon, InputAdornment, TextField } from "@material-ui/core";
+import { AccountCircle } from "@material-ui/icons";
 const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
   paper: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(5),
@@ -62,6 +67,21 @@ const useStyles = makeStyles((theme) => ({
   },
   Spacing: {
     padding: "30px",
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  scoreContainer: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#EBECF0",
+    width: "25rem",
+    padding: "4rem",
+    alignItems: "center",
+  },
+  submitScoreBtn: {
+    width: "10rem",
+    marginTop: "2rem",
   },
 }));
 
@@ -133,15 +153,52 @@ export default function ScoreSheet() {
 
   const renderSubmitScoreBtn = () => {
     if (sheetData.length > 0) {
-      return <button onClick={submitScoreHandler}>Submit Score</button>;
+      return (
+        <Button
+          variant="contained"
+          color="primary"
+          className={(classStyle.button, classStyle.submitScoreBtn)}
+          endIcon={<Icon>send</Icon>}
+          onClick={submitScoreHandler}
+        >
+          Submit Score
+        </Button>
+      );
     }
   };
 
   const renderStudentsScoreInput = sheetData.map((map, index) => {
     return (
       <label title={map.name} key={index}>
-        {map.name}
-        <input
+        {/* {map.name} */}
+        {/* <InputWithIcon title={map.name} onChange={scoreInputHandler} /> */}
+        <TextField
+          className={classStyle.margin}
+          id="input-with-icon-textfield"
+          label={map.name}
+          onChange={(e) => {
+            if (isNumber(e.target.value)) {
+              var newScores = scores;
+              const newData = {
+                [map.name]: !e.target.value ? 0 : parseInt(e.target.value),
+              };
+              newScores[index] = newData;
+              setScores(newScores);
+              console.log(e.target.parentElement.title);
+              console.log(
+                `newScore[${index}]: ${JSON.stringify(newScores[index])}`
+              );
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <AccountCircle />
+              </InputAdornment>
+            ),
+          }}
+        />
+        {/* <input
           type="text"
           required
           onChange={(e) => {
@@ -158,7 +215,7 @@ export default function ScoreSheet() {
               );
             }
           }}
-        />
+        /> */}
       </label>
     );
   });
@@ -195,6 +252,8 @@ export default function ScoreSheet() {
             title={"Create score sheet"}
             onClick={clickHandler}
           />
+        </div>
+        <div className={sheetData.length > 0 ? classStyle.scoreContainer : ""}>
           {renderStudentsScoreInput}
           {renderSubmitScoreBtn()}
         </div>
