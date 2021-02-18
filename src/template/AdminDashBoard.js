@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#47A3F5"
   },
   submit: {
     margin: theme.spacing(3, 0, 2),

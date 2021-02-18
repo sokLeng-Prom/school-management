@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
     // position: "fixed",
   },
   wholeCard: {
+    right: "30rem",
     width: "100vh",
     height: "100vh",
     display: "flex",
@@ -323,7 +324,7 @@ export default function AboutUs() {
         <div className={classes.aboutUsTitle}>
           <h1>" I am not lazy, I am on energy saving mode "</h1>
         </div>
-        <AboutUsImg className={classes.fourPeople} height={"70vh"} />
+        <AboutUsImg className={classes.fourPeople} height={"0vh"} />
       </div>
       <div className={classes.infoPage1} id="pageOne"> 
        <div className={classes.card}>

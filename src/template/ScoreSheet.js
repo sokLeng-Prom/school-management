@@ -1,12 +1,74 @@
 import { useEffect, useState } from "react";
 import { isNumber, BASE_URL } from "../static/const";
-
+import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 
 import CustomizedSelect from "../components/CustomizedSelect";
 
 import IconLabelButton from "../components/IconLabelButton";
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(5),
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  whiteBackground: {
+    background: "white",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  grayBackground: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "#ebecf0",
+    margin: "1rem",
+    height: "90%",
+    width: "80%"
+
+  },
+  avatar: {
+    margin: theme.spacing(3),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  test:{
+    borderColor: 'text.primary',
+    width: "50%"
+    
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(10, 15, 20),
+     
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+    marginRight: theme.spacing(5),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  section1: {
+    margin: theme.spacing(10, 10),
+  },
+  Spacing:{
+    padding: "30px",
+  }
+}));
+
 export default function ScoreSheet() {
+  const classStyle = useStyles()
   const [types, setTypes] = useState(["quiz", "assignments"]);
   const [type, setType] = useState();
 
@@ -80,14 +142,27 @@ export default function ScoreSheet() {
 
   return (
     <div>
-      <CustomizedSelect options={types} option={type} />
+      <div className = {classStyle.whiteBackground}>
+        <h2>Score Sheet</h2>
+        <div className = {classStyle.grayBackground}>
+          <CustomizedSelect options={types} option={type} />
+          <CustomizedSelect options={classes} option={_class} />
+          <IconLabelButton
+            title={"Create attendance sheet"}
+            onClick={clickHandler}
+          />
+          {renderStudentsScoreInput}
+           <button onClick={clickHandler}>Log Array</button>
+        </div>
+      </div>
+      {/* <CustomizedSelect options={types} option={type} />
       <CustomizedSelect options={classes} option={_class} />
       <IconLabelButton
         title={"Create attendance sheet"}
         onClick={clickHandler}
       />
 
-      {renderStudentsScoreInput}
+      {renderStudentsScoreInput} */}
       {/* <button onClick={clickHandler}>Log Array</button> */}
     </div>
   );

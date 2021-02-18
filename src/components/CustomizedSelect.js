@@ -91,7 +91,8 @@ import NativeSelect from "@material-ui/core/NativeSelect";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
+    marginRight: theme.spacing(5),
     minWidth: 120,
   },
   selectEmpty: {
@@ -116,7 +117,7 @@ export default function CustomizedSelect(props) {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel shrink htmlFor="age-native-label-placeholder">
-        Age
+        class
       </InputLabel>
       <NativeSelect
         value={props.option}

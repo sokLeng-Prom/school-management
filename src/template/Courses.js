@@ -56,6 +56,9 @@ export default function Courses() {
       ...theme.mixins.toolbar,
       display: "flex",
     },
+    table:{
+      backgroundColor: "#47A3F5"
+    },
   }));
 
   const classes = useStyles();
@@ -71,7 +74,7 @@ export default function Courses() {
             searchByHandler={searchByHandler}
           ></Selector>
         </div>
-        <EnhancedTable rows={filteredRows}></EnhancedTable>
+        <EnhancedTable className={classes.table} rows={filteredRows}></EnhancedTable>
       </div>
     </div>
   );

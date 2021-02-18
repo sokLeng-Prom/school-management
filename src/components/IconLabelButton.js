@@ -10,6 +10,7 @@ import SaveIcon from "@material-ui/icons/Save";
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
+    width: "30vh"
   },
 }));
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,6 +17,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import EventIcon from "@material-ui/icons/Event";
 import Courses from "./Courses";
@@ -198,6 +200,10 @@ function ResponsiveDrawer(props) {
         return <DashboardIcon />;
       case 8:
         return <InfoIcon />;
+      case 9:
+        return <AccessibilityNewIcon/>;
+      case 10:
+        return <AssignmentLateIcon/>
     }
   };
 

@@ -13,7 +13,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center"
+  },
+  whiteBackground: {
+    background: "white",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center"
+  },
+  grayBackground: {
+    background: "#ebecf0",
+    margin: "1rem",
+    height: "90%",
+    width: "80%"
+
   },
   avatar: {
     margin: theme.spacing(3),
@@ -21,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
   test:{
     borderColor: 'text.primary',
+    width: "50%"
+    
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -32,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+    marginRight: theme.spacing(5),
   },
   formControl: {
     margin: theme.spacing(1),
@@ -42,7 +60,16 @@ const useStyles = makeStyles((theme) => ({
   },
   Spacing:{
     padding: "30px",
-  }
+  },
+  noteSubmission:{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    alignItems: "center"
+   
+  },
+ 
 }));
 
 export default function CreateNotice() {
@@ -120,7 +147,24 @@ export default function CreateNotice() {
 
   return (
     <div>
-      <div className={classStyle.paper}>
+      <div className = {classStyle.whiteBackground}>
+        <h2>Create Notice</h2>
+        <div className = {classStyle.grayBackground}>
+        <div className={classStyle.paper}>
+        <CustomizedSelect 
+          className = {classStyle.selectEmpty}
+          options={types}
+          option={type}
+          optionHandler={typeHandler}
+        />
+        <CustomizedSelect
+          className = {classStyle.selectEmpty}
+          options={classes}
+          option={_class}
+          optionHandler={classHandler}
+        />
+      </div>
+        {/* <div className={classStyle.paper}>
         <CustomizedSelect 
           options={types}
           option={type}
@@ -131,7 +175,28 @@ export default function CreateNotice() {
           option={_class}
           optionHandler={classHandler}
         />
+      </div> */}
+
+          <div className={classStyle.noteSubmission}>
+          <TextField
+            className= {classStyle.test}
+            id="outlined-multiline-static"
+            label="Description"
+            multiline
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows={20}
+            // defaultValue="Default Value"
+            variant="outlined"
+          />
+          {/* seng uy make this under the description */}
+           <IconLabelButton className={classStyle.noteSubmitBtn} title={"Create Notice"} onClick={clickHandler} /> 
+          </div>
+          
+        </div>
+        
       </div>
+      {/* 
       <TextField
         className= {classStyle.test}
         id="outlined-multiline-static"
@@ -145,7 +210,7 @@ export default function CreateNotice() {
         // defaultValue="Default Value"
         variant="outlined"
       />
-      <IconLabelButton title={"Create Notice"} onClick={clickHandler} />
+      <IconLabelButton title={"Create Notice"} onClick={clickHandler} /> */}
     </div>
   );
 }
