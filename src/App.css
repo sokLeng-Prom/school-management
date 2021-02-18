@@ -27,7 +27,7 @@ h1{
   font-size: 3rem;
 }
 .App-link {
-  color: #61dafb;
+  color: #45cdf3;
 }
 
 @keyframes App-logo-spin {
@@ -42,13 +42,6 @@ h1{
 
 html{
   scroll-behavior: smooth;
-}
-
-#bird:hover {
-  cursor: pointer;
-  /* border: 1px solid black; */
-  /* fill: black; */
-  stroke: black !important;
 }
 
 #person-first:hover {
@@ -66,10 +59,7 @@ html{
   stroke: black !important;
 }
 
-#hoverCard:hover{
-  cursor: pointer;
-  stroke: black  !important;
-}
+
 #person-third:hover {
   cursor: pointer;
   /* border: 1px solid black; */
