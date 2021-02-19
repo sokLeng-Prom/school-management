@@ -14,11 +14,31 @@ import img1 from "../static/img/student_img_1.jpg";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: "auto",
+    height: 150,
+    marginLeft: "auto",
+    marginRight: "auto",
+    display: "flex",
+    marginTop: "2rem"
   },
   media: {
-    height: 150,
+    height: 100,
+    width: 100,
+    margin: "2rem"
   },
+  name:{
+    marginTop: "-3rem",
+    paddingTop: "4rem"
+  },
+  displayButton:{
+    marginRight: "2rem",
+  },
+  profile:{
+    display: "flex",
+    justifyContent: "left",
+    
+  }
+  
 });
 
 export default function StudentCard(props) {
@@ -26,20 +46,20 @@ export default function StudentCard(props) {
 
   return (
     <Card className={classes.root} id={`student-card-${props.id}`}>
-      <CardActionArea>
+      <CardActionArea className={classes.profile}>
         <CardMedia
           className={classes.media}
           image={img1}
           title="Contemplative Reptile"
-        />
+        /><Typography className={classes.name} gutterBottom variant="h5" component="h2">
+        {props.name}
+      </Typography>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
-          </Typography>
+          
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} className={classes.displayButton}>
           <Grid item xs={6}>
             <Button
               size="small"

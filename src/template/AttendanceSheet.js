@@ -20,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-}));
-// export default function AttendanceSheet(props) {
-//   const classes = useStyles();
+  displayAttendance:{
+
+    padding: "4rem"
+  },
   
-// }
+}));
+// 
 
 function AttendanceSheet() {
   const [data, setData] = useState([]);
@@ -64,7 +66,7 @@ function AttendanceSheet() {
   const renderer = () => {
     if (valid) {
       return students.map((student) => (
-        <StudentCard
+        <StudentCard 
           updateAttendance={updateAttendance}
           key={student.id}
           id={student.id}
@@ -94,20 +96,24 @@ function AttendanceSheet() {
   };
 
   useEffect(() => getDB(), []);
+      {/* <Button/> */}
+
   return (
-    <div>
-      <CustomizedSelect
+    <div >
+      <CustomizedSelect 
         option={_class}
         optionHandler={classHandler}
         options={classes}
+        
       />
       <DatePicker selectedDate={selectedDate} dateHandler={dateHandler} />
       <IconLabelButton
         title={"Generate Attendance"}
         onClick={generateAttedanceSheet}
       />
-      {/* <Button/> */}
+      <div className={classes.displayAttendance}>
       {renderer()}
+      </div>
     </div>
   );
 }

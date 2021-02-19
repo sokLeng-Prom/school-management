@@ -10,6 +10,10 @@ import bg5 from "../static/img/bg5.jpg";
 import bg2 from "../static/img/bg2.jpg";
 import bg3 from "../static/img/bg3.jpg";
 import bg4 from "../static/img/bg4.jpg";
+import Lottie from "react-lottie";
+
+import animationData from "../static/img/littie.json";
+import abstractBg from '../static/img/abstractBg.svg'
 import Tooltip from "@material-ui/core/Tooltip";
 import "../static/css/aboutUs.css";
 const useStyles = makeStyles((theme) => ({
@@ -17,13 +21,20 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     scrollbarWidth: 0,
   },
+  bigdiv: {
+    backgroundColor: "blue",
+    width: "30rem"
+  },
+
   cardsWrapper: {
     display: "flex",
     position: "absolute",
-    marginTop: "35vh",
+    // marginTop: "35vh",
+    marginRight: "70%",
     flexDirection: "row",
     flexWrap: "wrap",
-    width: "700px",
+    marginBottom: "30%",
+    // width: "700px",
   },
 
   card: {
@@ -51,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     height: "70vh",
     right: 0,
     marginTop: "30vh",
-    zIndex: -1,
+    // zIndex: -1,
   },
   Img: {
     width: "25rem",
@@ -87,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerBuilding: {
     paddingBottom: "2rem",
-    color: "white",
+    color: "black",
   },
   // Uy Seng's code
   coverPage: {
@@ -99,26 +110,32 @@ const useStyles = makeStyles((theme) => ({
   },
   infoPage1: {
     height: "100vh",
-    backgroundImage: `url(${bg2})`,
     color: "white"
     // backgroundColor: "silver"
   },
   infoPage2: {
     height: "100vh",
-    backgroundImage: `url(${bg3})`
+    position: "relative"
+    // backgroundImage: `url(${abstractBg})`
     // backgroundColor: "yellow",
   },
   infoPage3: {
     height: "100vh",
-    color: "white",
-    backgroundImage: `url(${bg4})`
+    // color: "white",
+    // backgroundImage: `url(${bg4})`
     // backgroundColor: "pink",
   },
   infoPage4: {
     height: "100vh",
-    backgroundImage: `url(${bg5})`
+    // backgroundImage: `url(${bg5})`
     // backgroundColor: "gray",
   },
+  abstractBg: {
+    position: "absolute",
+    left: 0,
+    zIndex: "0"
+  },
+ 
 }));
 var personFirst;
 var personSecond;
@@ -137,6 +154,14 @@ var pageThree;
 var pageFour;
 
 export default function AboutUs() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
   const classes = useStyles();
   const [cardIndex, setCardIndex] = useState(0);
 
@@ -244,7 +269,7 @@ export default function AboutUs() {
     // console.log(document.getElementById("#person-first"));
     switch (cardIndex) {
       case 0:
-        return <div className={classes.card}>Bunnaroth</div>;
+        return <div className={classes.card}>Seng uy</div>;
       case 1:
         return <div className={classes.card}>Bunnaroth</div>;
       case 2:
@@ -298,48 +323,6 @@ export default function AboutUs() {
   // ];
 
   return (
-    // Suling's code
-    // <div className={classes.container}>
-    //   {/* <img className={classes.coverImg} src={about_us} /> */}
-    //   <div>
-    //     <AboutUsImg className={classes.fourPeople} height={"70vh"} />
-    //     <div>
-    //       <div className={classes.aboutUsTitle}>
-    //       </div>
-    //       {infoCard()}
-
-    //       <div className={classes.aboutUsTitle}>
-    //         <img className={classes.Img} src={bunnaroth}></img>
-    //         <div className={classes.text}>
-    //           <p>Bunnaroth</p>
-    //           <h2>Second boss of potato</h2>
-    //         </div>
-    //       </div>
-    //       <div className={classes.aboutUsTitle}>
-    //         <img className={classes.Img} src={potato}></img>
-    //         <div className={classes.text}>
-    //           <p>Kuyeang</p>
-    //           <h2>third boss of potato</h2>
-    //         </div>
-    //       </div>
-    //       <div className={classes.aboutUsTitle}>
-    //         <img className={classes.Img} src={suling}></img>
-    //         <div className={classes.text}>
-    //           <p>Sokleng</p>
-    //           <h2>Last boss of potato</h2>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   // <div className={classes.card}>
-    //   //   <div className={classes.aboutUsTitle}>
-    //   //     <img className={classes.Img} src={potato}></img>
-    //   //     <div className={classes.text}>
-    //   //       <p>Uy Seng</p>
-    //   //       <h2>Leader of potato</h2>
-    //   //     </div>
-    //   //   </div>
-    //   // </div>
     // Uy Seng's code
 
     <div id="container" className={classes.container}>
@@ -351,8 +334,18 @@ export default function AboutUs() {
       </div>
       <div className={classes.infoPage1} id="pageOne">
         <div className={classes.card}>
+          <div className = {classes.cardsWrapper}>
+              <Lottie className={classes.abstractBg}
+                  options={defaultOptions}
+                  height={"auto"}
+                  width={400}
+            />
+            <div classes = {classes.bigdiv}>
+
+            </div>
+          </div>
           <div className={classes.wholeCard} id="hoverCard">
-            {/* <h2 className = {classes.headerBuilding}>“Remember that there is no code faster than no code.” </h2> */}
+          
             <h2 className={classes.headerBuilding}>“Hehe.” </h2>
 
             <div>
@@ -367,7 +360,35 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      
       <div className={classes.infoPage2} id="pageTwo">
+        <div className={classes.card}>
+          <div className = {classes.cardsWrapper}>
+              <Lottie className={classes.abstractBg}
+                  options={defaultOptions}
+                  height={"auto"}
+                  width={400}
+              />
+            <div classes = {classes.bigdiv}></div>
+          </div>
+          <div className={classes.wholeCard} id="hoverCard">
+            <h2 className={classes.headerBuilding}>“When I wrote this code, only God and I understood what I did. Now
+              only God knows.”
+            </h2>
+            <div>
+              <Tooltip title="Bunanroth">
+                <img className={classes.Img} src={bunnaroth}></img>
+              </Tooltip>
+              <div className={classes.text}>
+                <p>Bunanroth</p>
+                <h2>Second boss of potato</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className={classes.infoPage2} id="pageTwo">     
+         
         <div className={classes.card}>
           <div className={classes.wholeCard}>
             <h2 className={classes.headerBuilding}>
@@ -383,8 +404,34 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={classes.infoPage3} id="pageThree">
+        <div className={classes.card}>
+          <div className = {classes.cardsWrapper}>
+              <Lottie className={classes.abstractBg}
+                  options={defaultOptions}
+                  height={"auto"}
+                  width={400}
+              />
+            <div classes = {classes.bigdiv}></div>
+          </div>
+          <div className={classes.wholeCard} id="hoverCard">
+            <h2 className={classes.headerBuilding}> “A son asked his father (a programmer) why the sun rises in the
+              east, and sets in the west. His response? It works, don’t touch!”
+            </h2>
+            <div>
+              <Tooltip title="Kuyeang">
+                <img className={classes.Img} src={kuyeang}></img>
+              </Tooltip>
+              <div className={classes.text}>
+                <p>Kuyeang</p>
+                <h2>Third boss of potato</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className={classes.infoPage3} id="pageThree">
         <div className={classes.card}>
           <div className={classes.wholeCard}>
             <h2 className={classes.headerBuilding}>
@@ -400,13 +447,14 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-      </div>
-      <div className={classes.infoPage4} id="pageFour">
+      </div> */}
+
+
+      {/* <div className={classes.infoPage4} id="pageFour">
         <div className={classes.card}>
           <div className={classes.wholeCard}>
             <h2 className={classes.headerBuilding}>
-              “If debugging is the process of removing bugs, then programming
-              must be the process of putting them in.”
+              
             </h2>
             <Tooltip title="Sokleng">
               <img className={classes.Img} src={suling}></img>
@@ -414,6 +462,32 @@ export default function AboutUs() {
             <div className={classes.text}>
               <p>Sokleng</p>
               <h2>Last boss of potato</h2>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      <div className={classes.infoPage4} id="pageFour">
+        <div className={classes.card}>
+          <div className = {classes.cardsWrapper}>
+              <Lottie className={classes.abstractBg}
+                  options={defaultOptions}
+                  height={"auto"}
+                  width={400}
+              />
+            <div classes = {classes.bigdiv}></div>
+          </div>
+          <div className={classes.wholeCard} id="hoverCard">
+            <h2 className={classes.headerBuilding}> “If debugging is the process of removing bugs, then programming
+              must be the process of putting them in.”
+            </h2>
+            <div>
+              <Tooltip title="Sokleng">
+                <img className={classes.Img} src={suling}></img>
+              </Tooltip>
+              <div className={classes.text}>
+                <p>Sokleng</p>
+                <h2>Last boss of potato</h2>
+              </div>
             </div>
           </div>
         </div>
